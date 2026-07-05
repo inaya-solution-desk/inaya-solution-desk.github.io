@@ -4,61 +4,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inaya Solution Desk | Networking, Cybersecurity & Technical Writing</title>
-<meta name="description" content="Solving networks with clarity and precision. Expert help with Cisco Packet Tracer, GNS3, network design, and cybersecurity writing.">
+<meta name="description" content="Solving networks with clarity and precision. Expert guidance for learners and professionals.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-<style>
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #000000;
-  color: #ffffff;
+  background: #f5f7fa;
+  color: #1a1a2e;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  line-height: 1.5;
+  line-height: 1.7;
+  font-weight: 400;
 }
 a { text-decoration: none; color: inherit; }
 
+/* Font utilities */
+.font-serif { font-family: 'Playfair Display', serif; }
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
 /* Liquid Glass */
 .liquid-glass {
-  background: rgba(0, 0, 0, 0.4);
-  background-blend-mode: luminosity;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: none;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
+  background: rgba(20, 20, 30, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 8px 32px rgba(0,0,0,0.15);
 }
-.liquid-glass::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1.4px;
-  background: linear-gradient(180deg,
-    rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 20%,
-    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
-    rgba(255,255,255,0.1) 80%, rgba(255,255,255,0.3) 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+.liquid-glass-light {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 40px rgba(100, 116, 139, 0.15);
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero-section {
   position: relative;
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
-  background: #000;
+  background: #0a0a1a;
 }
 .hero-video {
   position: absolute;
@@ -67,6 +62,12 @@ a { text-decoration: none; color: inherit; }
   height: 100%;
   object-fit: cover;
   z-index: 0;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.55) 100%);
+  z-index: 1;
 }
 .hero-container {
   position: relative;
@@ -77,410 +78,575 @@ a { text-decoration: none; color: inherit; }
   padding: 0 24px;
 }
 @media (min-width: 768px) { .hero-container { padding: 0 48px; } }
-@media (min-width: 1024px) { .hero-container { padding: 0 64px; } }
+@media (min-width: 1024px) { .hero-container { padding: 0 72px; } }
 
 /* Navbar */
 .navbar-wrap { padding-top: 24px; }
 .navbar {
-  border-radius: 12px;
-  padding: 10px 16px;
+  border-radius: 100px;
+  padding: 14px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
-.navbar .logo {
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: -0.03em;
+.navbar .brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
   color: #fff;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.navbar .brand .accent {
+  background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .nav-links {
   display: none;
-  gap: 32px;
+  gap: 36px;
   list-style: none;
 }
-@media (min-width: 768px) { .nav-links { display: flex; } }
+@media (min-width: 900px) { .nav-links { display: flex; } }
 .nav-links a {
-  font-size: 14px;
-  font-weight: 400;
-  color: #fff;
-  transition: color 0.3s;
-}
-.nav-links a:hover { color: #d1d5db; }
-.nav-cta {
-  background: #fff;
-  color: #000;
-  padding: 8px 22px;
-  border-radius: 8px;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 14px;
   font-weight: 500;
-  transition: background 0.3s;
+  color: rgba(255,255,255,0.85);
+  transition: color 0.3s;
+  position: relative;
+  letter-spacing: 0.3px;
 }
-.nav-cta:hover { background: #f3f4f6; }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #fbbf24;
+  transition: all 0.3s;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a:hover::after { width: 100%; }
+.nav-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  display: block;
+}
+@media (min-width: 900px) { .nav-toggle { display: none; } }
 
 /* Hero content */
 .hero-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 48px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 0 60px;
 }
-@media (min-width: 1024px) {
-  .hero-content { padding-bottom: 64px; }
-  .hero-content-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: end;
-    gap: 32px;
-  }
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.95);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 32px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease 0.2s;
 }
-.hero-heading {
-  font-size: 40px;
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  margin-bottom: 16px;
-  color: #fff;
+.hero-eyebrow.visible { opacity: 1; transform: translateY(0); }
+.hero-eyebrow .dot {
+  width: 8px; height: 8px;
+  background: #34d399;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 12px #34d399;
 }
-@media (min-width: 768px) { .hero-heading { font-size: 56px; } }
-@media (min-width: 1024px) { .hero-heading { font-size: 68px; } }
-@media (min-width: 1280px) { .hero-heading { font-size: 80px; } }
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.15); }
+}
 
-.hero-heading .line { display: block; }
+.hero-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  color: #fff;
+  max-width: 1000px;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+}
+@media (min-width: 768px) { .hero-heading { font-size: 72px; } }
+@media (min-width: 1024px) { .hero-heading { font-size: 88px; } }
+.hero-heading .word {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0 8px;
+}
+.hero-heading .word.italic-word {
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(135deg, #fde68a 0%, #fbbf24 50%, #fef3c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 .hero-heading .char {
   display: inline-block;
   opacity: 0;
-  transform: translateX(-18px);
-  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
-.hero-heading .char.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
+.hero-heading .char.visible { opacity: 1; transform: translateY(0); }
 
 .hero-subheading {
-  font-size: 16px;
-  color: #d1d5db;
-  margin-bottom: 20px;
-  font-weight: 400;
-  max-width: 520px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 44px;
+  max-width: 620px;
+  line-height: 1.7;
   opacity: 0;
   transition: opacity 1000ms ease;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
-@media (min-width: 768px) { .hero-subheading { font-size: 18px; } }
+@media (min-width: 768px) { .hero-subheading { font-size: 20px; } }
 .hero-subheading.visible { opacity: 1; }
 
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  justify-content: center;
   opacity: 0;
   transition: opacity 1000ms ease;
 }
 .hero-buttons.visible { opacity: 1; }
 .btn-primary {
+  font-family: 'Space Grotesk', sans-serif;
   background: #fff;
-  color: #000;
-  padding: 12px 30px;
-  border-radius: 8px;
-  font-weight: 500;
+  color: #0a0a1a;
+  padding: 15px 34px;
+  border-radius: 100px;
+  font-weight: 600;
   font-size: 14px;
-  transition: background 0.3s;
+  letter-spacing: 0.3px;
+  transition: all 0.3s;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 10px 40px rgba(255,255,255,0.2);
 }
-.btn-primary:hover { background: #e5e7eb; }
-.btn-glass {
-  border-radius: 8px;
-  padding: 12px 30px;
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(255,255,255,0.35);
+  background: #fef3c7;
+}
+.btn-ghost {
+  font-family: 'Space Grotesk', sans-serif;
+  background: transparent;
   color: #fff;
-  font-weight: 500;
+  padding: 15px 34px;
+  border-radius: 100px;
+  font-weight: 600;
   font-size: 14px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1.5px solid rgba(255,255,255,0.4);
   transition: all 0.3s;
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
-.btn-glass:hover { background: #fff; color: #000; border-color: #fff; }
-
-.hero-tag-wrap {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  margin-top: 32px;
-  opacity: 0;
-  transition: opacity 1000ms ease;
+.btn-ghost:hover {
+  border-color: #fbbf24;
+  color: #fbbf24;
+  transform: translateY(-3px);
 }
-@media (min-width: 1024px) {
-  .hero-tag-wrap { justify-content: flex-end; margin-top: 0; }
-}
-.hero-tag-wrap.visible { opacity: 1; }
-.hero-tag {
-  padding: 12px 24px;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: 300;
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
-}
-@media (min-width: 768px) { .hero-tag { font-size: 20px; } }
-@media (min-width: 1024px) { .hero-tag { font-size: 24px; } }
 
-/* Sections below hero */
-section.section {
-  padding: 100px 24px;
-  position: relative;
-  background: #0a0a0a;
-}
-@media (min-width: 768px) { section.section { padding: 120px 48px; } }
-@media (min-width: 1024px) { section.section { padding: 140px 64px; } }
-
-.container-max { max-width: 1200px; margin: 0 auto; }
-
-.section-tag {
-  display: inline-block;
-  padding: 6px 16px;
-  border-radius: 100px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #d1d5db;
-  border: 1px solid rgba(255,255,255,0.15);
-  margin-bottom: 24px;
-  letter-spacing: 0.05em;
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.7);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-}
-.section-title {
-  font-size: 44px;
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  margin-bottom: 24px;
-  color: #fff;
-}
-@media (min-width: 768px) { .section-title { font-size: 56px; } }
-.section-subtitle {
-  font-size: 17px;
-  color: #9ca3af;
-  max-width: 640px;
-  margin-bottom: 60px;
-  font-weight: 400;
-}
-
-/* About */
-.about-content p {
-  font-size: 18px;
-  color: #d1d5db;
-  margin-bottom: 24px;
-  max-width: 780px;
-  font-weight: 300;
-  line-height: 1.7;
-}
-
-/* Services */
-.services-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-@media (min-width: 640px) { .services-grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
-.service-card {
-  padding: 32px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: all 0.4s;
-  min-height: 260px;
   display: flex;
   flex-direction: column;
-}
-.service-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255,255,255,0.3);
-  background: rgba(255,255,255,0.03);
-}
-.service-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.1);
-  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #fff;
-  margin-bottom: 24px;
+  gap: 12px;
+  animation: bounce 2s infinite;
+  z-index: 10;
 }
-.service-card h3 {
-  font-size: 18px;
-  font-weight: 500;
-  color: #fff;
-  margin-bottom: 12px;
-  letter-spacing: -0.02em;
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
 }
-.service-card p {
-  font-size: 14px;
-  color: #9ca3af;
-  line-height: 1.6;
-  font-weight: 300;
-  flex: 1;
-}
-.service-card .arrow {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: gap 0.3s;
-}
-.service-card:hover .arrow { gap: 12px; }
+.hero-scroll-hint i { font-size: 20px; }
 
-/* Portfolio */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-}
-@media (min-width: 768px) { .portfolio-grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(3, 1fr); } }
-.portfolio-card {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: all 0.4s;
-}
-.portfolio-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255,255,255,0.3);
-}
-.portfolio-thumb {
-  height: 200px;
-  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 60px;
-  color: rgba(255,255,255,0.7);
+/* ================= GUIDANCE SECTION ================= */
+.guidance-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 40%, #e2e8f0 100%);
+  padding: 140px 24px;
   position: relative;
   overflow: hidden;
 }
-.portfolio-thumb::after {
+@media (min-width: 768px) { .guidance-section { padding: 160px 48px; } }
+.guidance-section::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), transparent 60%);
+  top: -200px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
-.portfolio-body {
-  padding: 24px;
-}
-.portfolio-body h4 {
-  font-size: 18px;
-  font-weight: 500;
-  color: #fff;
-  margin-bottom: 10px;
-  letter-spacing: -0.02em;
-}
-.portfolio-body p {
-  font-size: 14px;
-  color: #9ca3af;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  font-weight: 300;
-}
-.tech-tag {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.15);
-  font-size: 11px;
-  color: #d1d5db;
-  margin: 3px 3px 3px 0;
-  letter-spacing: 0.03em;
+.guidance-section::after {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
-/* Contact */
-.contact-section {
-  text-align: center;
+.container-max {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
-.social-row {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6366f1;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding: 8px 20px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 100px;
+}
+
+.section-title-serif {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: #1e293b;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+@media (min-width: 768px) { .section-title-serif { font-size: 60px; } }
+.section-title-serif em {
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-lead {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px;
+  font-weight: 300;
+  color: #475569;
+  line-height: 1.75;
+  max-width: 720px;
+  margin-bottom: 60px;
+}
+
+/* Quote card */
+.quote-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 24px;
+  padding: 60px 50px;
+  box-shadow: 0 20px 60px rgba(100, 116, 139, 0.15), inset 0 1px 0 rgba(255,255,255,0.9);
+  border: 1px solid rgba(203, 213, 225, 0.4);
+  position: relative;
+  margin-bottom: 60px;
+}
+.quote-card::before {
+  content: '"';
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  font-family: 'Playfair Display', serif;
+  font-size: 180px;
+  color: rgba(99, 102, 241, 0.1);
+  line-height: 1;
+  font-weight: 700;
+}
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 500;
+  color: #334155;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 768px) { .quote-text { font-size: 30px; } }
+.quote-author {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  color: #6366f1;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Feature grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
   margin-top: 40px;
 }
-.social-btn {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+@media (min-width: 768px) { .feature-grid { grid-template-columns: repeat(3, 1fr); } }
+.feature-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(203, 213, 225, 0.5);
+  border-radius: 20px;
+  padding: 36px 30px;
+  transition: all 0.4s;
+}
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(100, 116, 139, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(255,255,255,0.95);
+}
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   font-size: 22px;
-  border: 1px solid rgba(255,255,255,0.15);
-  transition: all 0.3s;
+  margin-bottom: 22px;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
 }
-.social-btn:hover {
+.feature-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.feature-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Encouraging quote block */
+.encourage-block {
+  margin-top: 100px;
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+  border-radius: 30px;
+  border: 1px solid rgba(203, 213, 225, 0.4);
+}
+.encourage-block .quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 80px;
+  color: #6366f1;
+  line-height: 0.5;
+  margin-bottom: 20px;
+  opacity: 0.4;
+}
+.encourage-block p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 500;
+  color: #334155;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+@media (min-width: 768px) { .encourage-block p { font-size: 32px; } }
+.encourage-block .attribution {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: #6366f1;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 24px;
+}
+
+/* ================= GET IN TOUCH ================= */
+.contact-section {
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 50%, #dbe4ee 100%);
+  padding: 140px 24px;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 768px) { .contact-section { padding: 160px 48px; } }
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.contact-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.contact-card {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 32px;
+  padding: 70px 40px;
+  box-shadow: 0 30px 80px rgba(100, 116, 139, 0.2);
+}
+@media (min-width: 768px) { .contact-card { padding: 80px 60px; } }
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 640px) { .social-grid { grid-template-columns: repeat(3, 1fr); } }
+.social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 16px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(203, 213, 225, 0.5);
+  border-radius: 20px;
+  transition: all 0.4s;
+  color: #334155;
+}
+.social-link:hover {
   transform: translateY(-6px);
-  border-color: rgba(255,255,255,0.5);
-  background: rgba(255,255,255,0.08);
+  background: #fff;
+  box-shadow: 0 20px 40px rgba(100, 116, 139, 0.2);
+}
+.social-link .social-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  transition: transform 0.3s;
+}
+.social-link:hover .social-icon { transform: scale(1.1) rotate(-8deg); }
+.social-link.fiverr .social-icon { background: linear-gradient(135deg, #1dbf73, #10b981); }
+.social-link.email .social-icon { background: linear-gradient(135deg, #ef4444, #f97316); }
+.social-link.instagram .social-icon { background: linear-gradient(135deg, #f09433, #dc2743, #bc1888); }
+.social-link.facebook .social-icon { background: linear-gradient(135deg, #1877f2, #0866ff); }
+.social-link.github .social-icon { background: linear-gradient(135deg, #24292e, #1f2937); }
+.social-link .social-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  letter-spacing: 0.5px;
+}
+.social-link .social-handle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #64748b;
 }
 
 /* Footer */
 footer {
-  padding: 40px 24px;
+  background: linear-gradient(180deg, #cbd5e1 0%, #94a3b8 100%);
+  padding: 50px 24px 30px;
   text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  background: #000;
+}
+footer .footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  font-style: italic;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+footer .footer-brand .accent {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 footer p {
-  font-size: 13px;
-  color: #6b7280;
-  margin-top: 8px;
-  font-weight: 400;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #475569;
+  letter-spacing: 1px;
 }
-footer .brand {
-  font-size: 18px;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: -0.03em;
-}
-
-/* Scroll top */
-.scroll-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 48px;
-  height: 48px;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s;
-  z-index: 999;
-}
-.scroll-top.active { opacity: 1; visibility: visible; }
-.scroll-top:hover { background: rgba(255,255,255,0.2); }
 
 /* Reveal on scroll */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 .reveal.visible {
   opacity: 1;
@@ -490,229 +656,186 @@ footer .brand {
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ==================== HERO ==================== -->
 <section class="hero-section">
   <video class="hero-video" autoplay loop muted playsinline>
     <source src="video/video.mp4" type="video/mp4">
   </video>
+  <div class="hero-overlay"></div>
 
   <div class="hero-container">
     <!-- Navbar -->
     <div class="navbar-wrap">
       <nav class="navbar liquid-glass">
-        <div class="logo">Inaya</div>
+        <a href="index.html" class="brand">Inaya <span class="accent">Solution Desk</span></a>
         <ul class="nav-links">
-          <li>#aboutAbout</a></li>
-          <li>#services</li>
-          <li>#portfolio</li>
-          <li>#contact</li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-        <a href="#contact" class="nav-cta">Start a Chat</a>
+        <button class="nav-toggle" aria-label="Menu"><i class="bi bi-list"></i></button>
       </nav>
     </div>
 
     <!-- Hero content -->
     <div class="hero-content">
-      <div class="hero-content-inner">
-        <div>
-          <h1 class="hero-heading" id="hero-heading">Solving networks
-with clarity and precision.</h1>
-          <p class="hero-subheading" id="hero-sub">We help visionaries, learners, and businesses configure, secure, and understand the networks that power their world.</p>
-          <div class="hero-buttons" id="hero-btns">
-            <a href="https://www.fiverr.com" class="btn-primary" target="_blank">Message on Fiverr</a>
-            <a href="#services" class="btn-glass liquid-glass">Explore Services</a>
-          </div>
-        </div>
-        <div class="hero-tag-wrap" id="hero-tag">
-          <div class="hero-tag liquid-glass">Support. Design. Writing.</div>
-        </div>
+      <div class="hero-eyebrow" id="eyebrow">
+        <span class="dot"></span>
+        Available for New Projects
+      </div>
+      <h1 class="hero-heading" id="heading" data-text="Solving networks with|clarity|and precision."></h1>
+      <p class="hero-subheading" id="sub">
+        We help learners, professionals, and businesses configure, secure, and truly understand the networks that power their world.
+      </p>
+      <div class="hero-buttons" id="btns">
+        <a href="services.html" class="btn-primary">
+          Explore Services <i class="bi bi-arrow-right"></i>
+        </a>
+        <a href="contact.html" class="btn-ghost">
+          Get in Touch
+        </a>
       </div>
     </div>
   </div>
+
+  <div class="hero-scroll-hint">
+    Scroll to explore
+    <i class="bi bi-chevron-double-down"></i>
+  </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
+<!-- ==================== GUIDANCE SECTION ==================== -->
+<section class="guidance-section">
   <div class="container-max">
     <div class="reveal">
-      <span class="section-tag">About the Desk</span>
-      <h2 class="section-title">A quiet place where hard<br>network problems get solved.</h2>
+      <span class="section-eyebrow">For Students & Learners</span>
+      <h2 class="section-title-serif">We're here for your <em>guidance</em>.</h2>
+      <p class="section-lead">
+        Networking is not just about cables and configurations. It is about understanding how information flows, how systems connect, and how problems get solved. At Inaya Solution Desk, we walk beside you through every confusing moment, every failed ping, and every misconfigured route until things finally make sense.
+      </p>
     </div>
-    <div class="about-content reveal">
-      <p>Inaya Solution Desk is built on one simple idea. Every network problem has a clear solution, and every learner deserves to understand the reasoning behind the fix.</p>
-      <p>I am a network engineer with hands-on experience in Cisco Packet Tracer, GNS3, and Wireshark. I work with everyone from confused learners to small business owners. Not by handing them files and disappearing, but by walking through the problem, showing where things went wrong, and making sure they know how to fix it next time.</p>
-      <p>On the writing side, I produce clean cybersecurity and networking content grounded in real engineering experience. Because good documentation is what separates a network that works from a network that lasts.</p>
+
+    <!-- Feature Cards -->
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i class="bi bi-lightbulb"></i></div>
+        <h3>Clear Understanding</h3>
+        <p>Every solution comes with an explanation. You will not just get a working file, you will understand why it works and how to fix it next time on your own.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i class="bi bi-people"></i></div>
+        <h3>Patient Support</h3>
+        <p>Ask as many questions as you need. There is no such thing as a silly question when you are learning networks. Every path forward begins with curiosity.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+        <h3>Real Solutions</h3>
+        <p>From misconfigured VLANs to routing that will not converge, we bring hands-on experience with Cisco Packet Tracer, GNS3, and Wireshark to every problem.</p>
+      </div>
+    </div>
+
+    <!-- Quote block -->
+    <div class="encourage-block reveal">
+      <div class="quote-mark">&ldquo;</div>
+      <p>The only way to learn a network is to break one, understand why it broke, and fix it with someone who will explain every step of the way.</p>
+      <div class="attribution">Inaya Solution Desk Philosophy</div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="section" style="background:#050505;">
-  <div class="container-max">
-    <div class="reveal">
-      <span class="section-tag">Services</span>
-      <h2 class="section-title">Four ways to work together.</h2>
-      <p class="section-subtitle">Pick the one that matches what you need. Every service is built around clarity, honesty, and quick turnaround.</p>
-    </div>
+<!-- ==================== GET IN TOUCH ==================== -->
+<section class="contact-section" id="contact-preview">
+  <div class="contact-inner reveal">
+    <div class="contact-card">
+      <span class="section-eyebrow">Get in Touch</span>
+      <h2 class="section-title-serif">Let's start a <em>conversation</em>.</h2>
+      <p class="section-lead" style="margin-left:auto; margin-right:auto; text-align:center;">
+        The Solution Desk is open every day. Reach out on any of the channels below and I will respond within hours. No pressure, no upfront commitment. Just an honest chat about what you need.
+      </p>
 
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-icon"><i class="bi bi-wrench-adjustable"></i></div>
-        <h3>Packet Tracer Support</h3>
-        <p>Stuck on a topology or routing issue? I help you find the misconfiguration and understand the concept behind the fix.</p>
-        <span class="arrow">Learn more →</span>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon"><i class="bi bi-diagram-3"></i></div>
-        <h3>Network Design</h3>
-        <p>Complete network designs in Packet Tracer or GNS3 with clean documentation and step-by-step explanations.</p>
-        <span class="arrow">Learn more →</span>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon"><i class="bi bi-shield-lock"></i></div>
-        <h3>Cybersecurity Writing</h3>
-        <p>Whitepapers, knowledge-base articles, and product docs written by someone who understands the tech.</p>
-        <span class="arrow">Learn more →</span>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon"><i class="bi bi-file-earmark-text"></i></div>
-        <h3>Document Refinement</h3>
-        <p>Editing and formatting for technical documents. I take your draft and make it clearer, sharper, and ready.</p>
-        <span class="arrow">Learn more →</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section id="portfolio" class="section">
-  <div class="container-max">
-    <div class="reveal">
-      <span class="section-tag">Selected Work</span>
-      <h2 class="section-title">Recent projects.</h2>
-      <p class="section-subtitle">A few pieces that show the range of what I do, from enterprise WAN design to cybersecurity whitepapers.</p>
-    </div>
-
-    <div class="portfolio-grid">
-      <div class="portfolio-card reveal">
-        <div class="portfolio-thumb"><i class="bi bi-globe-americas"></i></div>
-        <div class="portfolio-body">
-          <h4>Multi-Site Enterprise WAN</h4>
-          <p>Three-branch network with HQ, designed using OSPF, VLANs, and serial WAN links.</p>
-          <span class="tech-tag">OSPF</span><span class="tech-tag">VLANs</span><span class="tech-tag">WAN</span>
-        </div>
-      </div>
-      <div class="portfolio-card reveal">
-        <div class="portfolio-thumb"><i class="bi bi-diagram-2"></i></div>
-        <div class="portfolio-body">
-          <h4>VLAN Segmentation Setup</h4>
-          <p>Segmented office with isolated VLANs, inter-VLAN routing, and ACL-based policies.</p>
-          <span class="tech-tag">VLANs</span><span class="tech-tag">DHCP</span><span class="tech-tag">ACLs</span>
-        </div>
-      </div>
-      <div class="portfolio-card reveal">
-        <div class="portfolio-thumb"><i class="bi bi-shield-check"></i></div>
-        <div class="portfolio-body">
-          <h4>Site-to-Site IPSec VPN</h4>
-          <p>Secure IPSec VPN in GNS3 with IKE Phase 1 and 2 and encrypted traffic flow.</p>
-          <span class="tech-tag">IPSec</span><span class="tech-tag">VPN</span><span class="tech-tag">GNS3</span>
-        </div>
-      </div>
-      <div class="portfolio-card reveal">
-        <div class="portfolio-thumb"><i class="bi bi-search"></i></div>
-        <div class="portfolio-body">
-          <h4>Wireshark Packet Analysis</h4>
-          <p>Diagnosed application slowness caused by MTU mismatch. Delivered root-cause report.</p>
-          <span class="tech-tag">Wireshark</span><span class="tech-tag">TCP/IP</span>
-        </div>
-      </div>
-      <div class="portfolio-card reveal">
-        <div class="portfolio-thumb"><i class="bi bi-file-earmark-richtext"></i></div>
-        <div class="portfolio-body">
-          <h4>Zero Trust Whitepaper</h4>
-          <p>2500-word whitepaper on zero-trust architecture for small business networks.</p>
-          <span class="tech-tag">Writing</span><span class="tech-tag">Zero Trust</span>
-        </div>
-      </div>
-      <div class="portfolio-card reveal">
-        <div class="portfolio-thumb"><i class="bi bi-vector-pen"></i></div>
-        <div class="portfolio-body">
-          <h4>Network Design Document</h4>
-          <p>Full HLD for a 100-user office including architecture, IP scheme, and Visio topology diagrams.</p>
-          <span class="tech-tag">Documentation</span><span class="tech-tag">Visio</span>
-        </div>
+      <div class="social-grid">
+        <a href="https://www.fiverr.com" target="_blank" class="social-link fiverr">
+          <div class="social-icon"><i class="bi bi-briefcase-fill"></i></div>
+          <div class="social-label">Fiverr</div>
+          <div class="social-handle">@inayasolutiondesk</div>
+        </a>
+        <a href="mailto:inaya.solutiondesk@gmail.com" class="social-link email">
+          <div class="social-icon"><i class="bi bi-envelope-fill"></i></div>
+          <div class="social-label">Email</div>
+          <div class="social-handle">inaya.solutiondesk</div>
+        </a>
+        <a href="https://www.instagram.com/inaya.solutionexpert" target="_blank" class="social-link instagram">
+          <div class="social-icon"><i class="bi bi-instagram"></i></div>
+          <div class="social-label">Instagram</div>
+          <div class="social-handle">@inaya.solutionexpert</div>
+        </a>
+        <a href="https://www.facebook.com/share/1GcSuUCzpV/" target="_blank" class="social-link facebook">
+          <div class="social-icon"><i class="bi bi-facebook"></i></div>
+          <div class="social-label">Facebook</div>
+          <div class="social-handle">Inaya Solution Desk</div>
+        </a>
+        <a href="https://github.com/inaya-solution-desk" target="_blank" class="social-link github">
+          <div class="social-icon"><i class="bi bi-github"></i></div>
+          <div class="social-label">GitHub</div>
+          <div class="social-handle">@inaya-solution-desk</div>
+        </a>
+        <a href="contact.html" class="social-link">
+          <div class="social-icon"><i class="bi bi-chat-heart-fill"></i></div>
+          <div class="social-label">Contact Page</div>
+          <div class="social-handle">Send a message</div>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section contact-section" style="background:#050505;">
-  <div class="container-max">
-    <div class="reveal">
-      <span class="section-tag">Get in touch</span>
-      <h2 class="section-title">Let's start a conversation.</h2>
-      <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">Reach out on any channel below. I respond within hours, and I promise honest scoping before we start any project.</p>
-    </div>
-
-    <div class="social-row reveal">
-      <a href="https://www.fiverr.com" class="social-btn" target="_blank" title="Fiverr">
-        <i class="bi bi-briefcase-fill"></i>
-      </a>
-      <a href="mailto:inaya.solutiondesk@gmail.com" class="social-btn" title="Email">
-        <i class="bi bi-envelope-fill"></i>
-      </a>
-      <a href="https://www.instagram.com/inaya.solutionexpert" class="social-btn" target="_blank" title="Instagram">
-        <i class="bi bi-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com/share/1GcSuUCzpV/" class="social-btn" target="_blank" title="Facebook">
-        <i class="bi bi-facebook"></i>
-      </a>
-      <a href="https://github.com/inaya-solution-desk" class="social-btn" target="_blank" title="GitHub">
-        <i class="bi bi-github"></i>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
+<!-- Footer -->
 <footer>
-  <div class="brand">Inaya Solution Desk</div>
-  <p>Copyright 2026. Crafted with care.</p>
+  <div class="footer-brand">Inaya <span class="accent">Solution Desk</span></div>
+  <p>Copyright 2026 &nbsp;&middot;&nbsp; Crafted with care</p>
 </footer>
 
-<button class="scroll-top" id="scrollTop"><i class="bi bi-arrow-up"></i></button>
-
 <script>
-// Character-by-character heading animation
-const heading = document.getElementById('hero-heading');
-const text = heading.textContent;
-const lines = text.split('\n');
+// ================= HEADING WORD-SAFE CHAR ANIMATION =================
+const heading = document.getElementById('heading');
+const rawText = heading.getAttribute('data-text');
+// Split by pipe to identify special italic words
+const parts = rawText.split('|');
 heading.innerHTML = '';
 
-const charDelay = 30;
-let globalIndex = 0;
-lines.forEach((line, lineIndex) => {
-  const lineDiv = document.createElement('span');
-  lineDiv.className = 'line';
-  [...line].forEach((char) => {
-    const span = document.createElement('span');
-    span.className = 'char';
-    span.textContent = char === ' ' ? '\u00A0' : char;
-    lineDiv.appendChild(span);
-    const idx = globalIndex;
-    setTimeout(() => span.classList.add('visible'), 200 + idx * charDelay);
-    globalIndex++;
+let globalCharIndex = 0;
+const charDelay = 35;
+const startDelay = 400;
+
+parts.forEach((part, partIdx) => {
+  const words = part.split(' ');
+  words.forEach((word, wIdx) => {
+    if (word.length === 0) return;
+    const wordSpan = document.createElement('span');
+    wordSpan.className = 'word';
+    // The middle part (partIdx === 1) gets the italic gradient
+    if (partIdx === 1) wordSpan.classList.add('italic-word');
+
+    [...word].forEach((ch) => {
+      const c = document.createElement('span');
+      c.className = 'char';
+      c.textContent = ch;
+      wordSpan.appendChild(c);
+      const idx = globalCharIndex;
+      setTimeout(() => c.classList.add('visible'), startDelay + idx * charDelay);
+      globalCharIndex++;
+    });
+    heading.appendChild(wordSpan);
   });
-  heading.appendChild(lineDiv);
 });
 
-// Fade in other elements
-setTimeout(() => document.getElementById('hero-sub').classList.add('visible'), 800);
-setTimeout(() => document.getElementById('hero-btns').classList.add('visible'), 1200);
-setTimeout(() => document.getElementById('hero-tag').classList.add('visible'), 1400);
+// ================= FADE IN OTHER HERO ELEMENTS =================
+setTimeout(() => document.getElementById('eyebrow').classList.add('visible'), 200);
+setTimeout(() => document.getElementById('sub').classList.add('visible'), 1600);
+setTimeout(() => document.getElementById('btns').classList.add('visible'), 2000);
 
-// Reveal on scroll
+// ================= REVEAL ON SCROLL =================
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -720,18 +843,8 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// Scroll to top
-window.addEventListener('scroll', () => {
-  const btn = document.getElementById('scrollTop');
-  if (window.scrollY > 500) btn.classList.add('active');
-  else btn.classList.remove('active');
-});
-document.getElementById('scrollTop').addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
 </script>
 
 </body>
