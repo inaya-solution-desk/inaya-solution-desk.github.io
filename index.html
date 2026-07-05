@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inaya Solution Desk | Networking, Cybersecurity & Technical Writing</title>
+<meta name="description" content="Solving networks with clarity and precision. Expert help with Cisco Packet Tracer, GNS3, network design, and cybersecurity writing.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #000000;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+a { text-decoration: none; color: inherit; }
+
+/* Liquid Glass */
+.liquid-glass {
+  background: rgba(0, 0, 0, 0.4);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 20%,
+    rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.1) 80%, rgba(255,255,255,0.3) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* HERO */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-container {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+}
+@media (min-width: 768px) { .hero-container { padding: 0 48px; } }
+@media (min-width: 1024px) { .hero-container { padding: 0 64px; } }
+
+/* Navbar */
+.navbar-wrap { padding-top: 24px; }
+.navbar {
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .logo {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+.nav-links {
+  display: none;
+  gap: 32px;
+  list-style: none;
+}
+@media (min-width: 768px) { .nav-links { display: flex; } }
+.nav-links a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: #d1d5db; }
+.nav-cta {
+  background: #fff;
+  color: #000;
+  padding: 8px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+.nav-cta:hover { background: #f3f4f6; }
+
+/* Hero content */
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 48px;
+}
+@media (min-width: 1024px) {
+  .hero-content { padding-bottom: 64px; }
+  .hero-content-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 32px;
+  }
+}
+.hero-heading {
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+  color: #fff;
+}
+@media (min-width: 768px) { .hero-heading { font-size: 56px; } }
+@media (min-width: 1024px) { .hero-heading { font-size: 68px; } }
+@media (min-width: 1280px) { .hero-heading { font-size: 80px; } }
+
+.hero-heading .line { display: block; }
+.hero-heading .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-18px);
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-heading .char.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hero-subheading {
+  font-size: 16px;
+  color: #d1d5db;
+  margin-bottom: 20px;
+  font-weight: 400;
+  max-width: 520px;
+  opacity: 0;
+  transition: opacity 1000ms ease;
+}
+@media (min-width: 768px) { .hero-subheading { font-size: 18px; } }
+.hero-subheading.visible { opacity: 1; }
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  opacity: 0;
+  transition: opacity 1000ms ease;
+}
+.hero-buttons.visible { opacity: 1; }
+.btn-primary {
+  background: #fff;
+  color: #000;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover { background: #e5e7eb; }
+.btn-glass {
+  border-radius: 8px;
+  padding: 12px 30px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-glass:hover { background: #fff; color: #000; border-color: #fff; }
+
+.hero-tag-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin-top: 32px;
+  opacity: 0;
+  transition: opacity 1000ms ease;
+}
+@media (min-width: 1024px) {
+  .hero-tag-wrap { justify-content: flex-end; margin-top: 0; }
+}
+.hero-tag-wrap.visible { opacity: 1; }
+.hero-tag {
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 300;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
+@media (min-width: 768px) { .hero-tag { font-size: 20px; } }
+@media (min-width: 1024px) { .hero-tag { font-size: 24px; } }
+
+/* Sections below hero */
+section.section {
+  padding: 100px 24px;
+  position: relative;
+  background: #0a0a0a;
+}
+@media (min-width: 768px) { section.section { padding: 120px 48px; } }
+@media (min-width: 1024px) { section.section { padding: 140px 64px; } }
+
+.container-max { max-width: 1200px; margin: 0 auto; }
+
+.section-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #d1d5db;
+  border: 1px solid rgba(255,255,255,0.15);
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.section-title {
+  font-size: 44px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  color: #fff;
+}
+@media (min-width: 768px) { .section-title { font-size: 56px; } }
+.section-subtitle {
+  font-size: 17px;
+  color: #9ca3af;
+  max-width: 640px;
+  margin-bottom: 60px;
+  font-weight: 400;
+}
+
+/* About */
+.about-content p {
+  font-size: 18px;
+  color: #d1d5db;
+  margin-bottom: 24px;
+  max-width: 780px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 640px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
+.service-card {
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.4s;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.03);
+}
+.service-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.service-card h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.service-card p {
+  font-size: 14px;
+  color: #9ca3af;
+  line-height: 1.6;
+  font-weight: 300;
+  flex: 1;
+}
+.service-card .arrow {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.3s;
+}
+.service-card:hover .arrow { gap: 12px; }
+
+/* Portfolio */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 768px) { .portfolio-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(3, 1fr); } }
+.portfolio-card {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.4s;
+}
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.3);
+}
+.portfolio-thumb {
+  height: 200px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  color: rgba(255,255,255,0.7);
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), transparent 60%);
+}
+.portfolio-body {
+  padding: 24px;
+}
+.portfolio-body h4 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+.portfolio-body p {
+  font-size: 14px;
+  color: #9ca3af;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+.tech-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.15);
+  font-size: 11px;
+  color: #d1d5db;
+  margin: 3px 3px 3px 0;
+  letter-spacing: 0.03em;
+}
+
+/* Contact */
+.contact-section {
+  text-align: center;
+}
+.social-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.social-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 22px;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: all 0.3s;
+}
+.social-btn:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.08);
+}
+
+/* Footer */
+footer {
+  padding: 40px 24px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  background: #000;
+}
+footer p {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 8px;
+  font-weight: 400;
+}
+footer .brand {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.03em;
+}
+
+/* Scroll top */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 999;
+}
+.scroll-top.active { opacity: 1; visibility: visible; }
+.scroll-top:hover { background: rgba(255,255,255,0.2); }
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero-section">
+  <video class="hero-video" autoplay loop muted playsinline>
+    <source src="https://cdn.pixabay.com/video/2020/05/25/40130-424718888_large.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-container">
+    <!-- Navbar -->
+    <div class="navbar-wrap">
+      <nav class="navbar liquid-glass">
+        <div class="logo">Inaya</div>
+        <ul class="nav-links">
+          <li>#aboutAbout</a></li>
+          <li>#services</li>
+          <li>#portfolio</li>
+          <li>#contact</li>
+        </ul>
+        <a href="#contact" class="nav-cta">Start a Chat</a>
+      </nav>
+    </div>
+
+    <!-- Hero content -->
+    <div class="hero-content">
+      <div class="hero-content-inner">
+        <div>
+          <h1 class="hero-heading" id="hero-heading">Solving networks
+with clarity and precision.</h1>
+          <p class="hero-subheading" id="hero-sub">We help visionaries, learners, and businesses configure, secure, and understand the networks that power their world.</p>
+          <div class="hero-buttons" id="hero-btns">
+            <a href="https://www.fiverr.com" class="btn-primary" target="_blank">Message on Fiverr</a>
+            <a href="#services" class="btn-glass liquid-glass">Explore Services</a>
+          </div>
+        </div>
+        <div class="hero-tag-wrap" id="hero-tag">
+          <div class="hero-tag liquid-glass">Support. Design. Writing.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container-max">
+    <div class="reveal">
+      <span class="section-tag">About the Desk</span>
+      <h2 class="section-title">A quiet place where hard<br>network problems get solved.</h2>
+    </div>
+    <div class="about-content reveal">
+      <p>Inaya Solution Desk is built on one simple idea. Every network problem has a clear solution, and every learner deserves to understand the reasoning behind the fix.</p>
+      <p>I am a network engineer with hands-on experience in Cisco Packet Tracer, GNS3, and Wireshark. I work with everyone from confused learners to small business owners. Not by handing them files and disappearing, but by walking through the problem, showing where things went wrong, and making sure they know how to fix it next time.</p>
+      <p>On the writing side, I produce clean cybersecurity and networking content grounded in real engineering experience. Because good documentation is what separates a network that works from a network that lasts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section" style="background:#050505;">
+  <div class="container-max">
+    <div class="reveal">
+      <span class="section-tag">Services</span>
+      <h2 class="section-title">Four ways to work together.</h2>
+      <p class="section-subtitle">Pick the one that matches what you need. Every service is built around clarity, honesty, and quick turnaround.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="bi bi-wrench-adjustable"></i></div>
+        <h3>Packet Tracer Support</h3>
+        <p>Stuck on a topology or routing issue? I help you find the misconfiguration and understand the concept behind the fix.</p>
+        <span class="arrow">Learn more →</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="bi bi-diagram-3"></i></div>
+        <h3>Network Design</h3>
+        <p>Complete network designs in Packet Tracer or GNS3 with clean documentation and step-by-step explanations.</p>
+        <span class="arrow">Learn more →</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="bi bi-shield-lock"></i></div>
+        <h3>Cybersecurity Writing</h3>
+        <p>Whitepapers, knowledge-base articles, and product docs written by someone who understands the tech.</p>
+        <span class="arrow">Learn more →</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="bi bi-file-earmark-text"></i></div>
+        <h3>Document Refinement</h3>
+        <p>Editing and formatting for technical documents. I take your draft and make it clearer, sharper, and ready.</p>
+        <span class="arrow">Learn more →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="section">
+  <div class="container-max">
+    <div class="reveal">
+      <span class="section-tag">Selected Work</span>
+      <h2 class="section-title">Recent projects.</h2>
+      <p class="section-subtitle">A few pieces that show the range of what I do, from enterprise WAN design to cybersecurity whitepapers.</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb"><i class="bi bi-globe-americas"></i></div>
+        <div class="portfolio-body">
+          <h4>Multi-Site Enterprise WAN</h4>
+          <p>Three-branch network with HQ, designed using OSPF, VLANs, and serial WAN links.</p>
+          <span class="tech-tag">OSPF</span><span class="tech-tag">VLANs</span><span class="tech-tag">WAN</span>
+        </div>
+      </div>
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb"><i class="bi bi-diagram-2"></i></div>
+        <div class="portfolio-body">
+          <h4>VLAN Segmentation Setup</h4>
+          <p>Segmented office with isolated VLANs, inter-VLAN routing, and ACL-based policies.</p>
+          <span class="tech-tag">VLANs</span><span class="tech-tag">DHCP</span><span class="tech-tag">ACLs</span>
+        </div>
+      </div>
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb"><i class="bi bi-shield-check"></i></div>
+        <div class="portfolio-body">
+          <h4>Site-to-Site IPSec VPN</h4>
+          <p>Secure IPSec VPN in GNS3 with IKE Phase 1 and 2 and encrypted traffic flow.</p>
+          <span class="tech-tag">IPSec</span><span class="tech-tag">VPN</span><span class="tech-tag">GNS3</span>
+        </div>
+      </div>
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb"><i class="bi bi-search"></i></div>
+        <div class="portfolio-body">
+          <h4>Wireshark Packet Analysis</h4>
+          <p>Diagnosed application slowness caused by MTU mismatch. Delivered root-cause report.</p>
+          <span class="tech-tag">Wireshark</span><span class="tech-tag">TCP/IP</span>
+        </div>
+      </div>
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb"><i class="bi bi-file-earmark-richtext"></i></div>
+        <div class="portfolio-body">
+          <h4>Zero Trust Whitepaper</h4>
+          <p>2500-word whitepaper on zero-trust architecture for small business networks.</p>
+          <span class="tech-tag">Writing</span><span class="tech-tag">Zero Trust</span>
+        </div>
+      </div>
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb"><i class="bi bi-vector-pen"></i></div>
+        <div class="portfolio-body">
+          <h4>Network Design Document</h4>
+          <p>Full HLD for a 100-user office including architecture, IP scheme, and Visio topology diagrams.</p>
+          <span class="tech-tag">Documentation</span><span class="tech-tag">Visio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact-section" style="background:#050505;">
+  <div class="container-max">
+    <div class="reveal">
+      <span class="section-tag">Get in touch</span>
+      <h2 class="section-title">Let's start a conversation.</h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">Reach out on any channel below. I respond within hours, and I promise honest scoping before we start any project.</p>
+    </div>
+
+    <div class="social-row reveal">
+      <a href="https://www.fiverr.com" class="social-btn" target="_blank" title="Fiverr">
+        <i class="bi bi-briefcase-fill"></i>
+      </a>
+      <a href="mailto:inaya.solutiondesk@gmail.com" class="social-btn" title="Email">
+        <i class="bi bi-envelope-fill"></i>
+      </a>
+      <a href="https://www.instagram.com/inaya.solutionexpert" class="social-btn" target="_blank" title="Instagram">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/share/1GcSuUCzpV/" class="social-btn" target="_blank" title="Facebook">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a href="https://github.com/inaya-solution-desk" class="social-btn" target="_blank" title="GitHub">
+        <i class="bi bi-github"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="brand">Inaya Solution Desk</div>
+  <p>Copyright 2026. Crafted with care.</p>
+</footer>
+
+<button class="scroll-top" id="scrollTop"><i class="bi bi-arrow-up"></i></button>
+
+<script>
+// Character-by-character heading animation
+const heading = document.getElementById('hero-heading');
+const text = heading.textContent;
+const lines = text.split('\n');
+heading.innerHTML = '';
+
+const charDelay = 30;
+let globalIndex = 0;
+lines.forEach((line, lineIndex) => {
+  const lineDiv = document.createElement('span');
+  lineDiv.className = 'line';
+  [...line].forEach((char) => {
+    const span = document.createElement('span');
+    span.className = 'char';
+    span.textContent = char === ' ' ? '\u00A0' : char;
+    lineDiv.appendChild(span);
+    const idx = globalIndex;
+    setTimeout(() => span.classList.add('visible'), 200 + idx * charDelay);
+    globalIndex++;
+  });
+  heading.appendChild(lineDiv);
+});
+
+// Fade in other elements
+setTimeout(() => document.getElementById('hero-sub').classList.add('visible'), 800);
+setTimeout(() => document.getElementById('hero-btns').classList.add('visible'), 1200);
+setTimeout(() => document.getElementById('hero-tag').classList.add('visible'), 1400);
+
+// Reveal on scroll
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Scroll to top
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTop');
+  if (window.scrollY > 500) btn.classList.add('active');
+  else btn.classList.remove('active');
+});
+document.getElementById('scrollTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>
