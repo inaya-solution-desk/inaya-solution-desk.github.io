@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inaya Solution Desk | Networking, Cybersecurity & Technical Writing</title>
+    <meta name="description" content="Expert help with Cisco Packet Tracer, GNS3, network design, cybersecurity writing, and technical documentation. Solutions delivered with clarity.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.7; color: #e8e8e8; background: #0a0e1a; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Navigation */
+        nav*{ position: fixed; top: 0; width: *00%; background: rgba(10, 14, 26, *.95); backdrop-filter: blur(10px);*z*index: 1000; padding: 20px 0; bord*r-bottom: 1px solid rgba(255, 215,*0, 0.1); }
+        .nav-container * max-width: 1*00px; margin: 0 auto; padding: 0 2*px; display: flex; justify-content* space-between; align-items: cente*; }
+        .logo { font-size: 22p*; font-weight: *00; color: #ffd700; }
+        .log* span { color: #fff; }
+        .na*-links { display: flex; gap: 32px;*list*style: none; }
+        .nav-links * { color: #e8e8e8; text-decoration* none; font-size: 15px; font-weigh*: 500* transition: color 0.3s; }
+        .nav-links a:hover { color: #ffd700; }
+
+        /* Hero */
+        .hero { min-height* 100vh; display: flex; align-items* center; justify-content: center; *ext-align: center; padding: 120px *4px 60px; background: radial-gradi*nt(circ*e at 50% 50%, #1a2138 0%, #0a0e1a *0%); }
+        .*ero-content { max-width: 900px; }
+*       .hero-badge { display: inli*e-block; padding: 8px 20px; backgr*und: rgba(255, 215, 0, *.1); border: 1px solid rgba(255, 2*5, 0, 0.3); border-radius: 100px; *olor: #ffd700; font-size: 13px; fo*t-weight: *00; margin-bottom: 24px; letter-sp*cing: 1px; text-transform: upperca*e; }
+        .hero h1 { font-size:*64*x; font-weight: 800; line-height: *.1; margin-bottom: 24px; backgroun*: linear-gradient(135deg, #ffffff *%, #ffd700 100%); -webkit-backgrou*d-clip: text; -webkit-text-fill-co*or: transparent; background-clip: *ext; }
+        .hero .tagline { fo*t-size: 22px; color: #a8b2c8; marg*n-bottom: 40px; font-weight: 400; *
+        .btn-group { display: fle*; gap: 16px; justify-content: cent*r; flex-wrap: wrap; }
+        .btn*{ padding: 16px 32px; border-radiu*: 8px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s; display: inline-block; }
+        .btn-primary { background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%); color: #0a0e1a; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3); }
+        .btn-secondary { background: transparent; color: #fff; border: 2px solid rgba(255, 255, 255, 0.2); }
+        .btn-secondary:hover { border-color: #ffd700; color: #ffd700; }
+
+        /* Sections */
+        section { padding: 100px 0; }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-tag { color: #ffd700; font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+        .section-title { font-size: 42px; font-weight: 800; color: #fff; margin-bottom: 16px; }
+        .section-subtitle { color: #a8b2c8; font-size: 17px; max-width: 600px; margin: 0 auto; }
+
+        /* About */
+        .about { background: #0f1424; }
+        .about-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .about-content p { color: #c8d0e0; font-size: 17px; margin-bottom: 20px; }
+
+        /* Services */
+        .services-grid*{ display: grid; grid-template-col*mns: repeat(auto-fit, minmax(280px* 1fr)); gap: 24px; }
+        .serv*ce-card { background: #131a2e; pad*ing: 40px 32px; border-radius: 12p*; border: 1px solid rgba(255, 215,*0, 0.1); transition: all 0.3s; }
+ *      .service-card:hover { transf*rm: translateY(-6px); border-color: rgba(255, 215, 0, 0.4); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+        .service-icon { font-size: 40px; margin-bottom: 20px; }
+        .service-card h3 { color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+        .service-card p { color: #a8b2c8; font-size: 15px; margin-bottom: 24px; }
+        .service-link { color: #ffd700; text-decoration: none; font-weight: 600; font-size: 14px; }
+        .service-link:hover { text-decoration: underline; }
+
+        /* Portfolio */
+        .portfolio { background:*#0f1424; }
+        .portfolio-grid*{ display: grid; grid-template-col*mns: repeat(auto-fit, minmax(320px* 1fr)); gap: 24px; }
+        .port*olio-item { background: #131a2e; b*rder-radius: 12px; overflow: hidde*; transition: all 0.3s; border: 1p* solid rgba(255, 215, 0, 0.1); }
+ *      .portfolio-item:hover { tran*form: translateY(-6px); }
+        *portfolio-image { height: 200px; b*ckground: linear-gradient(135deg, *1a2138 0%, #2a3050 100%); display:*flex; align-items: center; justify*content: center; color: #ffd700; f*nt-size: 48px; }
+        .portfoli*-content { padding: 24px; }
+      * .portfolio-content h3 { color: #f*f; font-size: 18px; font-weight: 7*0; margin-bottom: 10px; }
+        *portfolio-content p { color:*#a8b2c8; font-size: 14px; margin-b*ttom: 12px; }
+        .portfolio-t*gs { display: flex; flex-wrap: wra*; gap* 6px; }
+        .tag { background:*rgba(255, 215, 0, 0.1); color: #ff*700; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+
+        /* Skills */
+        .skills-grid { d*splay: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto; }
+        .skill-block h3 { color: #ffd700; font-size: 18px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .skill-block ul { list-style: none; }
+        .skill-block li { color: #c8d0e0; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 15px; }
+        .skill-block li:before { content: "▸ "; color: #ffd700; font-weight: bold; }
+
+        /* Contact */
+        .contact { background: linear-gradient(135deg, #131a2e 0%, #0a0e1a 100%); text-align: center; }
+        .contact-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+
+        /* Footer */
+        footer { background: #0a0e1a; padding: 40px 0; text-align: center; border-top: 1px solid rgba(255, 215, 0, 0.1); }
+        footer p { color: #a8b2c8; font-size: 14px; }
+        footer .logo { justify-content: center; margin-bottom: 12px; font-size: 18px; }
+
+        /* Mobile */
+        @media (max-widt*: 768px) {
+            .nav-links * display: none; }
+            .her* h1 { font-size: 40px; }
+         *  .hero .tagline { font-size: 17px* }
+            .section-title { fo*t-size: 32px; }
+            .skill*-grid { grid-template-columns: 1fr* gap: 24px; }
+        }
+    </styl*>
+</head>
+<body>
+
+    <!-- Navigat*on -->
+    <nav>
+        <div clas*="nav-container">
+            <div*class="logo">Inaya<span> Solution *esk</span></div>
+            <ul c*ass="nav-links">
+                <*i><a href="#about">About</a></li>
+*               <li><a href="#servi*es">Services</a></li>
+            *   <li><a href="#portfolio">Portfo*io</a></li>
+                <li><a*href="#skills">Skills</a></li>
+   *            <li><a href="#contact"*Contact</a></li>
+            </ul>*        </div>
+    </nav>
+
+    <!-* Hero -->
+    <section class="hero*>
+        <div class="hero-content*>
+            <div class="hero-bad*e">✦ Networking & Cybersecurity Ex*ert ✦</div>
+            <h1>Welcom* to Inaya Solution Desk</h1>
+     *      <p class="tagline">Where net*orking problems get solved and con*using configurations start making *ense.</p>
+            <div class="*tn-group">
+                <a href*"https://www.fiverr.com/YOUR_FIVERR_USERNAME" class="btn btn-primary"*🎯 Hire Me on Fiverr</a>
+         *      <a href="#portfolio" class="*tn btn-secondary">💼 See My Work</*>
+            </div>
+        </div*
+    </section>
+
+    <!-- About --*
+    <section id="about" class="ab*ut">
+        <div class="container*>
+            <div class="section-*eader">
+                <div class*"section-tag">About the Desk</div>*                <h2 class="section*title">Your Trusted Networking Par*ner</h2>
+            </div>
+      *     <div class="about-content">
+ *              <p>Inaya Solution De*k is a focused practice built on o*e simple idea: every network probl*m has a clear solution, and every *earner deserves to understand the *why" behind the fix.</p>
+         *      <p>I'm a network engineer wi*h hands-on experience in Cisco Pac*et Tracer, GNS3, and Wireshark. I'*e helped everyone from confused le*rners to small business owners get*their networks working. Not by han*ing them files and disappearing, b*t by walking through the problem, *howing where things went wrong, an* making sure they know how to fix *t next time.</p>
+                <*>On the writing side, I produce cl*an cybersecurity and networking co*tent grounded in real engineering *xperience. Because good documentat*on is what separates a network tha* works from a network that lasts.<*p>
+            </div>
+        </di*>
+    </section>
+
+    <!-- Service* -->
+    <section id="services" cl*ss="services">
+        <div class=*container">
+            <div class*"section-header">
+                *div class="section-tag">How I Can *elp</div>
+                <h2 clas*="section-title">Services Offered<*h2>
+                <p class="sect*on-subtitle">Four ways to work tog*ther — pick what fits your need.</*>
+            </div>
+            <*iv class="services-grid">
+        *       <div class="service-card">
+*                   <div class="ser*ice-icon">🔧</div>
+               *    <h3>Packet Tracer & Networking*Support</h3>
+                    <*>Stuck on a topology, misconfigure* VLAN, or routing issue? I'll help*you find the misconfiguration, und*rstand the concept, and get your n*twork working end to end.</p>
+    *               <a href="https://www.fiverr.com/YOUR_FIVERR_USERNAME" *lass="service-link">See on Fiverr *</a>
+                </div>
+      *         <div class="service-card"*
+                    <div class="s*rvice-icon">🌐</div>
+             *      <h3>Network Design & Configu*ation</h3>
+                    <p>*omplete network designs in Packet *racer or GNS3 with clean documenta*ion, IP addressing plans, and step*by-step explanations of every desi*n choice.</p>
+                    *a href="https://www.fiverr.com/YOUR_FIVERR_USERNAME" class="service-l*nk">See on Fiverr →</a>
+          *     </div>
+                <div c*ass="service-card">
+              *     <div class="service-icon">✍️<*div>
+                    <h3>Cyber*ecurity Technical Writing</h3>
+   *                <p>Whitepapers, kn*wledge-base articles, product docs* and blog posts on networking and *ybersecurity — written by someone *ho actually understands the tech.<*p>
+                    <a href="https://www.fiverr.com/YOUR_FIVERR_USERNAME" class="service-link">See on*Fiverr →</a>
+                </div*
+                <div class="servi*e-card">
+                    <div *lass="service-icon">📄</div>
+     *              <h3>Research Writing*Refinement</h3>
+                  * <p>Editing, structural improvemen*s, and formatting for technical do*uments. I take your draft and make*it clearer, sharper, and submissio*-ready in your chosen style.</p>
+ *                  <a href="https://www.fiverr.com/YOUR_FIVERR_USERNAME" class="service-link">See on Five*r →</a>
+                </div>
+   *        </div>
+        </div>
+    */section>
+
+    <!-- Portfolio -->
+*   <section id="portfolio" class="*ortfolio">
+        <div class="con*ainer">
+            <div class="se*tion-header">
+                <div*class="section-tag">Selected Work<*div>
+                <h2 class="se*tion-title">Recent Projects</h2>
+ *              <p class="section-su*title">A few projects that show th* range of what I do.</p>
+         *  </div>
+            <div class="p*rtfolio-grid">
+                <di* class="portfolio-item">
+         *          <div class="portfolio-im*ge">🌐</div>
+                    <*iv class="portfolio-content">
+    *                   <h3>Multi-Site *nterprise WAN</h3>
+               *        <p>Three-branch network wi*h HQ, designed in Cisco Packet Tra*er using OSPF, VLAN segmentation, *nd serial WAN links.</p>
+         *              <div class="portfoli*-tags"><span class="tag">OSPF</spa*><span class="tag">VLANs</span><sp*n class="tag">WAN</span></div>
+   *                </div>
+           *    </div>
+                <div cl*ss="portfolio-item">
+             *      <div class="portfolio-image"*🔀</div>
+                    <div *lass="portfolio-content">
+        *               <h3>Departmental VL*N Segmentation</h3>
+              *         <p>Segmented office netwo*k with isolated VLANs, inter-VLAN *outing through Layer 3 switch, and*ACL-based policies.</p>
+          *             <div class="portfolio*tags"><span class="tag">VLANs</spa*><span class="tag">DHCP</span><spa* class="tag">ACLs</span></div>
+   *                </div>
+           *    </div>
+                <div cl*ss="portfolio-item">
+             *      <div class="portfolio-image"*🔐</div>
+                    <div *lass="portfolio-content">
+        *               <h3>Site-to-Site IP*ec VPN</h3>
+                      * <p>Secure IPSec VPN between two r*mote offices in GNS3, with IKE Pha*e 1/2 negotiation and encrypted tr*ffic flow.</p>
+                   *    <div class="portfolio-tags"><s*an class="tag">IPSec</span><span c*ass="tag">VPN</span><span class="t*g">GNS3</span></div>
+             *      </div>
+                </div*
+                <div class="portf*lio-item">
+                    <di* class="portfolio-image">🔍</div>
+*                   <div class="por*folio-content">
+                  *     <h3>Wireshark Packet Analysis*/h3>
+                        <p>Di*gnosed application slowness by ide*tifying TCP retransmissions caused*by MTU mismatch. Delivered root-ca*se report.</p>
+                   *    <div class="portfolio-tags"><s*an class="tag">Wireshark</span><sp*n class="tag">TCP/IP</span></div>
+*                   </div>
+        *       </div>
+                <div*class="portfolio-item">
+          *         <div class="portfolio-ima*e">📘</div>
+                    <d*v class="portfolio-content">
+     *                  <h3>Zero-Trust W*itepaper</h3>
+                    *   <p>2,500-word whitepaper on zer*-trust architecture for small busi*ess networks — from perimeter secu*ity to identity-based access.</p>
+*                       <div class=*portfolio-tags"><span class="tag">*riting</span><span class="tag">Zer* Trust</span></div>
+              *     </div>
+                </div>*                <div class="portfo*io-item">
+                    <div*class="portfolio-image">📐</div>
+ *                  <div class="port*olio-content">
+                   *    <h3>High-Level Network Design *oc</h3>
+                        <p*Complete HLD for a 100-user office*including architecture, IP scheme,*VLAN structure, and Visio topology*diagrams.</p>
+                    *   <div class="portfolio-tags"><sp*n class="tag">Documentation</span>*span class="tag">Visio</span></div*
+                    </div>
+      *         </div>
+            </div>*        </div>
+    </section>
+
+   *<!-- Skills -->
+    <section id="s*ills" class="skills">
+        <div*class="container">
+            <di* class="section-header">
+         *      <div class="section-tag">Exp*rtise</div>
+                <h2 cl*ss="section-title">Certifications * Skills</h2>
+            </div>
+  *         <div class="skills-grid">*                <div class="skill-*lock">
+                    <h3>🏆 *ertifications</h3>
+               *    <ul>
+                        <*i>Cisco Certified Network Associat* (CCNA)</li>
+                     *  <li>Huawei Certified ICT Associa*e (HCIA)</li>
+                    *   <li>Routing & Switching Special*zation</li>
+                      * <li>Network Security Fundamentals*/li>
+                    </ul>
+   *            </div>
+               *<div class="skill-block">
+        *           <h3>⚙️ Technical Skills*/h3>
+                    <ul>
+    *                   <li>Cisco Packe* Tracer, GNS3, EVE-NG</li>
+       *                <li>Wireshark pack*t analysis</li>
+                  *     <li>OSPF, EIGRP, BGP, RIP rou*ing</li>
+                        <*i>VLANs, STP, VTP, EtherChannel</l*>
+                        <li>ACLs* NAT/PAT, DHCP, DNS</li>
+         *              <li>Site-to-Site VPN* IPSec, GRE</li>
+                 *      <li>Wireless LAN Controller *WLC)</li>
+                        *li>IPv4 and IPv6 dual-stack</li>
+ *                  </ul>
+          *     </div>
+            </div>
+   *    </div>
+    </section>
+
+    <!-* Contact -->
+    <section id="cont*ct" class="contact">
+        <div *lass="container">
+            <div*class="section-header">
+          *     <div class="section-tag">Get *n Touch</div>
+                <h2 *lass="section-title">Stop by the D*sk</h2>
+                <p class="*ection-subtitle">The Solution Desk*is open every day. Reach out on Fi*err for the fastest response, or s*nd an email for larger projects.</*>
+            </div>
+            <*iv class="contact-buttons">
+      *         <a href="https://www.fiverr.com/YOUR_FIVERR_USERNAME" class=*btn btn-primary">🎯 Message Me on *iverr</a>
+                <a href=*mailto:inaya.solutiondesk@gmail.co*" class="btn btn-secondary">✉️ Sen* Email</a>
+            </div>
+    *   </div>
+    </section>
+
+    <!--*Footer -->
+    <footer>
+        <d*v class="container">
+            <*iv class="logo">Inaya<span> Soluti*n Desk</span></div>
+            <p*© 2026 Inaya Solution Desk. Built *ith care.</p>
+        </div>
+    <*footer>
+
+</body>
+</html>
