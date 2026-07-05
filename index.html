@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inaya Solution Desk | Networking & Technical Writing Expert</title>
+<meta name="description" content="Expert help with Cisco Packet Tracer, GNS3, network design, cybersecurity writing, and technical documentation.">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-1: #1a1447;
+  --bg-2: #2d1b69;
+  --bg-3: #3d2985;
+  --primary: #8b5cf6;
+  --primary-light: #a78bfa;
+  --accent: #06d6a0;
+  --accent-2: #ffd166;
+  --pink: #ef476f;
+  --cyan: #22d3ee;
+  --text: #f1f5f9;
+  --text-muted: #cbd5e1;
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --gradient-main: linear-gradient(135deg, #8b5cf6 0%, #22d3ee 50%, #06d6a0 100%);
+  --gradient-warm: linear-gradient(135deg, #ffd166 0%, #ef476f 50%, #8b5cf6 100%);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #1a1447 0%, #2d1b69 50%, #1e1b4b 100%);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.75;
+  font-weight: 400;
+  position: relative;
+}
+
+/* Background layers */
+.bg-grid {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: -3;
+  pointer-events: none;
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+  z-index: -1;
+  pointer-events: none;
+}
+.orb-1 {
+  width: 500px; height: 500px;
+  background: #8b5cf6;
+  top: -100px; right: -100px;
+  animation: orbFloat1 25s ease-in-out infinite;
+}
+.orb-2 {
+  width: 400px; height: 400px;
+  background: #22d3ee;
+  top: 40%; left: -150px;
+  animation: orbFloat2 30s ease-in-out infinite;
+}
+.orb-3 {
+  width: 450px; height: 450px;
+  background: #ef476f;
+  bottom: -100px; right: 20%;
+  animation: orbFloat3 28s ease-in-out infinite;
+  opacity: 0.35;
+}
+.orb-4 {
+  width: 350px; height: 350px;
+  background: #ffd166;
+  top: 60%; right: -100px;
+  animation: orbFloat1 22s ease-in-out infinite reverse;
+  opacity: 0.3;
+}
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(80px, 60px) scale(1.1); }
+  66% { transform: translate(-40px, 100px) scale(0.9); }
+}
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(120px, -80px) scale(1.15); }
+}
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-100px, -60px) scale(1.1); }
+  66% { transform: translate(60px, 40px) scale(0.95); }
+}
+
+/* Font families */
+.font-hero { font-family: 'Playfair Display', serif; font-weight: 800; letter-spacing: -1px; }
+.font-section { font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.5px; }
+.font-body { font-family: 'Inter', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+/* Navbar */
+.navbar {
+  background: rgba(26, 20, 71, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 18px 0;
+  transition: all 0.3s;
+}
+.navbar.scrolled {
+  background: rgba(26, 20, 71, 0.92);
+  padding: 12px 0;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 26px;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nav-link {
+  font-family: 'Sora', sans-serif;
+  color: var(--text) !important;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0 10px;
+  position: relative;
+  letter-spacing: 0.3px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-main);
+  transition: all 0.3s;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+.nav-link:hover::after { width: 80%; }
+.nav-link:hover { color: var(--accent-2) !important; }
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 140px 0 80px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  background: rgba(255, 209, 102, 0.12);
+  border: 1px solid rgba(255, 209, 102, 0.35);
+  border-radius: 100px;
+  color: var(--accent-2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.hero-badge .dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px var(--accent);
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 82px;
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 28px;
+  letter-spacing: -2px;
+}
+.hero h1 .word-1 { color: var(--text); font-style: italic; font-weight: 600; }
+.hero h1 .gradient-text {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+  display: inline-block;
+}
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero .tagline {
+  font-family: 'Sora', sans-serif;
+  font-size: 22px;
+  color: var(--text-muted);
+  margin-bottom: 44px;
+  font-weight: 400;
+  min-height: 40px;
+}
+.hero .typed-text {
+  color: var(--accent);
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+}
+.hero .cursor { color: var(--accent-2); animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Buttons */
+.btn-modern {
+  padding: 15px 34px;
+  border-radius: 100px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.btn-primary-modern {
+  background: var(--gradient-main);
+  background-size: 200% 200%;
+  color: white;
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4);
+}
+.btn-primary-modern:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(139, 92, 246, 0.6);
+  color: white;
+  background-position: 100% 50%;
+}
+.btn-outline-modern {
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(10px);
+}
+.btn-outline-modern:hover {
+  background: rgba(255, 209, 102, 0.1);
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+  transform: translateY(-4px);
+}
+
+/* Stats */
+.stats-row {
+  margin-top: 70px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+.stat-item { text-align: center; }
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 46px;
+  font-weight: 800;
+  background: var(--gradient-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 8px;
+}
+
+/* Sections */
+section { padding: 110px 0; position: relative; }
+.section-tag {
+  display: inline-block;
+  padding: 8px 18px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--primary-light);
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin-bottom: 20px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+.section-title em {
+  font-style: italic;
+  font-weight: 600;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-subtitle {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
+  font-size: 18px;
+  max-width: 640px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+/* About */
+.about p {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
+  font-size: 17px;
+  margin-bottom: 22px;
+  line-height: 1.85;
+}
+.about p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 700;
+  float: left;
+  line-height: 0.9;
+  margin: 8px 12px 0 0;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 40px 32px;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 209, 102, 0.1), transparent);
+  transition: left 0.6s;
+}
+.glass-card:hover::before { left: 100%; }
+.glass-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(255, 209, 102, 0.4);
+  box-shadow: 0 30px 60px rgba(139, 92, 246, 0.25);
+}
+.service-icon {
+  width: 72px;
+  height: 72px;
+  background: var(--gradient-main);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: white;
+  margin-bottom: 26px;
+  transition: transform 0.4s;
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35);
+}
+.glass-card:hover .service-icon {
+  transform: rotate(-8deg) scale(1.08);
+}
+.glass-card h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: white;
+  letter-spacing: -0.3px;
+}
+.glass-card p {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-bottom: 26px;
+  line-height: 1.7;
+}
+.card-link {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.card-link:hover { gap: 14px; color: var(--accent-2); }
+
+/* Portfolio */
+.portfolio-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s;
+  height: 100%;
+}
+.portfolio-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 30px 60px rgba(34, 211, 238, 0.2);
+}
+.portfolio-thumb {
+  height: 220px;
+  background: linear-gradient(135deg, #2d1b69 0%, #1a1447 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-thumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.3), transparent 60%),
+              radial-gradient(circle at 70% 70%, rgba(34, 211, 238, 0.25), transparent 60%);
+}
+.portfolio-thumb i {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 5px 20px rgba(0,0,0,0.4));
+}
+.portfolio-body { padding: 30px; }
+.portfolio-body h4 {
+  font-family: 'Sora', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+.portfolio-body p {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
+  font-size: 14.5px;
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+.tech-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--primary-light);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  margin: 3px;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  letter-spacing: 0.5px;
+}
+
+/* Skills */
+.skill-item { margin-bottom: 26px; }
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.skill-header span:first-child {
+  font-family: 'Sora', sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+}
+.skill-header span:last-child {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 13px;
+}
+.skill-bar {
+  height: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.skill-fill {
+  height: 100%;
+  background: var(--gradient-main);
+  border-radius: 100px;
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+/* Certifications */
+.cert-badge {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 18px;
+  margin-bottom: 16px;
+  transition: all 0.3s;
+}
+.cert-badge:hover {
+  border-color: var(--accent-2);
+  transform: translateX(8px);
+  background: rgba(255, 209, 102, 0.05);
+}
+.cert-icon {
+  width: 54px;
+  height: 54px;
+  background: var(--gradient-warm);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(239, 71, 111, 0.3);
+}
+.cert-info h5 {
+  font-family: 'Sora', sans-serif;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+.cert-info p {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-muted);
+  font-size: 12px;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Contact */
+.contact-section {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(34, 211, 238, 0.05));
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.social-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+.social-icon:hover {
+  transform: translateY(-6px) scale(1.1);
+  color: white;
+}
+.social-icon.fiverr:hover { background: #1dbf73; border-color: #1dbf73; box-shadow: 0 15px 30px rgba(29, 191, 115, 0.4); }
+.social-icon.email:hover { background: #ea4335; border-color: #ea4335; box-shadow: 0 15px 30px rgba(234, 67, 53, 0.4); }
+.social-icon.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: #dc2743; box-shadow: 0 15px 30px rgba(220, 39, 67, 0.4); }
+.social-icon.facebook:hover { background: #1877f2; border-color: #1877f2; box-shadow: 0 15px 30px rgba(24, 119, 242, 0.4); }
+.social-icon.linkedin:hover { background: #0a66c2; border-color: #0a66c2; box-shadow: 0 15px 30px rgba(10, 102, 194, 0.4); }
+.social-icon.github:hover { background: #24292e; border-color: #24292e; box-shadow: 0 15px 30px rgba(36, 41, 46, 0.4); }
+
+/* Footer */
+footer {
+  padding: 50px 0 30px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+footer .brand-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 24px;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+footer p {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 8px 0 0 0;
+  letter-spacing: 0.5px;
+}
+
+/* Scroll to Top */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 54px;
+  height: 54px;
+  background: var(--gradient-main);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 999;
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.5);
+  border: none;
+}
+.scroll-top.active { opacity: 1; visibility: visible; }
+.scroll-top:hover { transform: translateY(-6px); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 48px; }
+  .hero .tagline { font-size: 18px; }
+  .hero .typed-text { font-size: 16px; }
+  .section-title { font-size: 38px; }
+  .stat-number { font-size: 34px; }
+  .navbar-brand { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div id="particles-js"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="orb orb-4"></div>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Inaya Solution Desk</a>
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <i class="bi bi-list" style="font-size:28px;color:white;"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-10 mx-auto text-center" data-aos="fade-up">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Available for New Projects
+        </div>
+        <h1>
+          <span class="word-1">Welcome to</span>
+          <br>
+          <span class="gradient-text">Inaya Solution Desk</span>
+        </h1>
+        <p class="tagline">
+          Expert help with <span class="typed-text" id="typed"></span><span class="cursor">|</span>
+        </p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap" data-aos="fade-up" data-aos-delay="200">
+          <a href="#services" class="btn-modern btn-primary-modern">
+            <i class="bi bi-rocket-takeoff"></i> Explore Services
+          </a>
+          <a href="#contact" class="btn-modern btn-outline-modern">
+            <i class="bi bi-chat-dots"></i> Get In Touch
+          </a>
+        </div>
+
+        <div class="stats-row row" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-md-3 col-6 stat-item">
+            <div class="stat-number" data-count="150">0</div>
+            <div class="stat-label">Projects Done</div>
+          </div>
+          <div class="col-md-3 col-6 stat-item">
+            <div class="stat-number" data-count="98">0</div>
+            <div class="stat-label">Satisfaction</div>
+          </div>
+          <div class="col-md-3 col-6 stat-item">
+            <div class="stat-number" data-count="5">0</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="col-md-3 col-6 stat-item">
+            <div class="stat-number" data-count="24">0</div>
+            <div class="stat-label">Hour Response</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center" data-aos="fade-up">
+        <div class="section-tag">About the Desk</div>
+        <h2 class="section-title">Your Trusted <em>Networking Partner</em></h2>
+      </div>
+      <div class="col-lg-9 mt-4" data-aos="fade-up" data-aos-delay="100">
+        <p>Inaya Solution Desk is built on one simple idea. Every network problem has a clear solution, and every learner deserves to understand the reasoning behind the fix.</p>
+        <p>I am a network engineer with hands-on experience in Cisco Packet Tracer, GNS3, and Wireshark. I help everyone from confused learners to small business owners get their networks working. Not by handing them files and disappearing, but by walking through the problem, showing where things went wrong, and making sure they know how to fix it next time.</p>
+        <p>On the writing side, I produce clean cybersecurity and networking content grounded in real engineering experience. Because good documentation is what separates a network that works from a network that lasts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-tag">What I Do</div>
+      <h2 class="section-title">Services <em>Offered</em></h2>
+      <p class="section-subtitle">Four ways to work together. Pick what fits your need.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card">
+          <div class="service-icon"><i class="bi bi-wrench-adjustable"></i></div>
+          <h3>Packet Tracer Support</h3>
+          <p>Stuck on a topology or routing issue? I help you find the misconfiguration, understand the concept, and get your network working end to end.</p>
+          <a href="https://www.fiverr.com" class="card-link" target="_blank">View on Fiverr <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card">
+          <div class="service-icon"><i class="bi bi-diagram-3"></i></div>
+          <h3>Network Design</h3>
+          <p>Complete network designs in Packet Tracer or GNS3 with clean documentation, IP addressing plans, and step by step explanations.</p>
+          <a href="https://www.fiverr.com" class="card-link" target="_blank">View on Fiverr <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="glass-card">
+          <div class="service-icon"><i class="bi bi-shield-lock"></i></div>
+          <h3>Cybersecurity Writing</h3>
+          <p>Whitepapers, knowledge base articles, product docs, and blog posts written by someone who actually understands the tech.</p>
+          <a href="https://www.fiverr.com" class="card-link" target="_blank">View on Fiverr <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <div class="glass-card">
+          <div class="service-icon"><i class="bi bi-file-earmark-text"></i></div>
+          <h3>Document Refinement</h3>
+          <p>Editing and formatting for technical documents. I take your draft and make it clearer, sharper, and ready in your chosen style.</p>
+          <a href="https://www.fiverr.com" class="card-link" target="_blank">View on Fiverr <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-tag">Selected Work</div>
+      <h2 class="section-title">Recent <em>Projects</em></h2>
+      <p class="section-subtitle">A few projects that show the range of what I do.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="portfolio-card">
+          <div class="portfolio-thumb"><i class="bi bi-globe-americas" style="color:#a78bfa;"></i></div>
+          <div class="portfolio-body">
+            <h4>Multi-Site Enterprise WAN</h4>
+            <p>Three-branch network with HQ, designed in Cisco Packet Tracer using OSPF, VLAN segmentation, and serial WAN links.</p>
+            <span class="tech-tag">OSPF</span><span class="tech-tag">VLANs</span><span class="tech-tag">WAN</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="portfolio-card">
+          <div class="portfolio-thumb"><i class="bi bi-diagram-2" style="color:#22d3ee;"></i></div>
+          <div class="portfolio-body">
+            <h4>VLAN Segmentation Setup</h4>
+            <p>Segmented office network with isolated VLANs, inter-VLAN routing through Layer 3 switch, and ACL-based policies.</p>
+            <span class="tech-tag">VLANs</span><span class="tech-tag">DHCP</span><span class="tech-tag">ACLs</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="portfolio-card">
+          <div class="portfolio-thumb"><i class="bi bi-shield-check" style="color:#ffd166;"></i></div>
+          <div class="portfolio-body">
+            <h4>Site-to-Site IPSec VPN</h4>
+            <p>Secure IPSec VPN between two remote offices in GNS3, with IKE Phase 1 and 2 negotiation and encrypted traffic flow.</p>
+            <span class="tech-tag">IPSec</span><span class="tech-tag">VPN</span><span class="tech-tag">GNS3</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+        <div class="portfolio-card">
+          <div class="portfolio-thumb"><i class="bi bi-search" style="color:#ef476f;"></i></div>
+          <div class="portfolio-body">
+            <h4>Wireshark Analysis</h4>
+            <p>Diagnosed application slowness by identifying TCP retransmissions caused by MTU mismatch. Root cause report delivered.</p>
+            <span class="tech-tag">Wireshark</span><span class="tech-tag">TCP/IP</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="500">
+        <div class="portfolio-card">
+          <div class="portfolio-thumb"><i class="bi bi-file-earmark-richtext" style="color:#06d6a0;"></i></div>
+          <div class="portfolio-body">
+            <h4>Zero Trust Whitepaper</h4>
+            <p>2500-word whitepaper on zero-trust architecture for small business networks, from perimeter to identity-based access.</p>
+            <span class="tech-tag">Writing</span><span class="tech-tag">Zero Trust</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="600">
+        <div class="portfolio-card">
+          <div class="portfolio-thumb"><i class="bi bi-vector-pen" style="color:#a78bfa;"></i></div>
+          <div class="portfolio-body">
+            <h4>Network Design Document</h4>
+            <p>Complete HLD for a 100-user office including architecture, IP scheme, VLAN structure, and Visio topology diagrams.</p>
+            <span class="tech-tag">Documentation</span><span class="tech-tag">Visio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <div class="section-tag">Expertise</div>
+      <h2 class="section-title">Skills & <em>Certifications</em></h2>
+    </div>
+    <div class="row g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <h4 class="font-section mb-4" style="color:white;"><i class="bi bi-bar-chart-fill" style="color:var(--accent);"></i> Technical Proficiency</h4>
+        <div class="skill-item">
+          <div class="skill-header"><span>Cisco Packet Tracer & GNS3</span><span>95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Routing (OSPF, EIGRP, BGP)</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Switching & VLANs</span><span>92%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Wireshark Analysis</span><span>88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Network Security & VPN</span><span>85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Technical Writing</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <h4 class="font-section mb-4" style="color:white;"><i class="bi bi-award-fill" style="color:var(--accent-2);"></i> Certifications</h4>
+        <div class="cert-badge">
+          <div class="cert-icon"><i class="bi bi-patch-check"></i></div>
+          <div class="cert-info">
+            <h5>Cisco Certified Network Associate</h5>
+            <p>CCNA Routing and Switching</p>
+          </div>
+        </div>
+        <div class="cert-badge">
+          <div class="cert-icon"><i class="bi bi-patch-check"></i></div>
+          <div class="cert-info">
+            <h5>Huawei Certified ICT Associate</h5>
+            <p>HCIA Routing and Switching</p>
+          </div>
+        </div>
+        <div class="cert-badge">
+          <div class="cert-icon"><i class="bi bi-patch-check"></i></div>
+          <div class="cert-info">
+            <h5>Network Security Fundamentals</h5>
+            <p>Firewalls, VPN, IPS and IDS</p>
+          </div>
+        </div>
+        <div class="cert-badge">
+          <div class="cert-icon"><i class="bi bi-patch-check"></i></div>
+          <div class="cert-info">
+            <h5>Technical Writing Specialist</h5>
+            <p>Cybersecurity and Networking Content</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center" data-aos="zoom-in">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-title">Stop by <em>the Desk</em></h2>
+        <p class="section-subtitle">The Solution Desk is open every day. Reach out through any of the channels below and I will respond within hours.</p>
+
+        <div class="social-icons">
+          <a href="https://www.fiverr.com" class="social-icon fiverr" target="_blank" title="Fiverr">
+            <i class="bi bi-briefcase-fill"></i>
+          </a>
+          <a href="mailto:inaya.solutiondesk@gmail.com" class="social-icon email" title="Email">
+            <i class="bi bi-envelope-fill"></i>
+          </a>
+          <a href="https://www.instagram.com/inaya.solutionexpert" class="social-icon instagram" target="_blank" title="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/share/1GcSuUCzpV/" class="social-icon facebook" target="_blank" title="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" class="social-icon linkedin" target="_blank" title="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="https://github.com/inaya-solution-desk" class="social-icon github" target="_blank" title="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="brand-name">Inaya Solution Desk</div>
+    <p>Copyright 2026 Inaya Solution Desk. Crafted with passion.</p>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16"></script>
+
+<script>
+AOS.init({ duration: 1000, once: true, offset: 100 });
+
+particlesJS('particles-js', {
+  particles: {
+    number: { value: 60, density: { enable: true, value_area: 900 } },
+    color: { value: ['#a78bfa', '#22d3ee', '#ffd166', '#06d6a0'] },
+    shape: { type: 'circle' },
+    opacity: { value: 0.5, random: true, anim: { enable: true, speed: 0.5, opacity_min: 0.1 } },
+    size: { value: 3, random: true },
+    line_linked: { enable: true, distance: 160, color: '#a78bfa', opacity: 0.25, width: 1 },
+    move: { enable: true, speed: 1.2, direction: 'none', out_mode: 'out' }
+  },
+  interactivity: {
+    detect_on: 'canvas',
+    events: {
+      onhover: { enable: true, mode: 'grab' },
+      onclick: { enable: true, mode: 'push' },
+      resize: true
+    },
+    modes: {
+      grab: { distance: 200, line_linked: { opacity: 0.7 } },
+      push: { particles_nb: 4 }
+    }
+  },
+  retina_detect: true
+});
+
+new Typed('#typed', {
+  strings: [
+    'Cisco Packet Tracer',
+    'Network Design & Configuration',
+    'Cybersecurity Writing',
+    'Technical Documentation',
+    'Wireshark Analysis'
+  ],
+  typeSpeed: 60,
+  backSpeed: 35,
+  backDelay: 2000,
+  loop: true,
+  showCursor: false
+});
+
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.navbar');
+  if (window.scrollY > 50) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+
+  const scrollBtn = document.getElementById('scrollTop');
+  if (window.scrollY > 500) scrollBtn.classList.add('active');
+  else scrollBtn.classList.remove('active');
+});
+
+document.getElementById('scrollTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+const counters = document.querySelectorAll('.stat-number');
+const startCounter = (el) => {
+  const target = +el.getAttribute('data-count');
+  const duration = 2000;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      const suffix = target === 98 ? '%' : target === 24 ? '/7' : '+';
+      el.textContent = target + suffix;
+      clearInterval(timer);
+    } else {
+      el.textContent = Math.floor(current);
+    }
+  }, 16);
+};
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      startCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObserver.observe(c));
+
+const skillFills = document.querySelectorAll('.skill-fill');
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const width = entry.target.getAttribute('data-width');
+      entry.target.style.width = width + '%';
+      skillObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+skillFills.forEach(bar => skillObserver.observe(bar));
+</script>
+
+</body>
+</html>
