@@ -195,7 +195,14 @@ words.forEach((word, wIdx) => {
   const wordSpan = document.createElement('span');
   wordSpan.className = 'word';
   // Highlight the word "clarity" with amber accent
-  if (word.toLowerCase().includes('clarity')) wordSpan.classList.add('accent');
+  if (word.toLowerCase().includes('clarity')) {
+  wordSpan.style.color = '#FFFFFF';
+  wordSpan.style.fontStyle = 'italic';
+  wordSpan.style.fontWeight = '500';
+  wordSpan.style.textShadow = '0 0 30px rgba(232, 168, 92, 0.9), 0 0 60px rgba(232, 168, 92, 0.5), 0 4px 20px rgba(0, 0, 0, 0.5)';
+  wordSpan.style.webkitTextFillColor = '#FFFFFF';
+  wordSpan.style.background = 'none';
+}
   [...word].forEach((ch) => {
     const c = document.createElement('span');
     c.className = 'char';
