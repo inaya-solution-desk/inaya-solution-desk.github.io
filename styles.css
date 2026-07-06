@@ -1131,3 +1131,164 @@ footer p {
   transform: translateX(4px);
   color: var(--text-primary);
 }
+
+/* =====================================================
+   FIX BLOCK — Tighter spacing, solid white, compact contact & footer
+   ===================================================== */
+
+/* Fix 1: Solid white background everywhere (no blue gradients on page) */
+body {
+  background: #FFFFFF !important;
+}
+.page-hero {
+  background: #FFFFFF !important;
+}
+.guidance-section {
+  background: #FFFFFF !important;
+}
+.page-hero::before,
+.page-hero::after,
+.guidance-section::before,
+.guidance-section::after {
+  display: none !important;
+}
+
+/* Fix 2: Reduce section spacing (cut padding roughly in half) */
+.page-hero {
+  padding: 40px 20px 40px !important;
+}
+@media (min-width: 768px) {
+  .page-hero {
+    padding: 60px 40px 60px !important;
+  }
+}
+
+.guidance-section {
+  padding: 50px 20px !important;
+}
+@media (min-width: 640px) {
+  .guidance-section {
+    padding: 60px 32px !important;
+  }
+}
+@media (min-width: 1024px) {
+  .guidance-section {
+    padding: 70px 64px !important;
+  }
+}
+
+.section-header {
+  margin-bottom: 30px !important;
+}
+.section-lead {
+  margin-bottom: 24px !important;
+}
+
+.trust-block {
+  margin-top: 30px !important;
+  padding: 40px 24px !important;
+}
+@media (min-width: 640px) {
+  .trust-block {
+    padding: 50px 40px !important;
+    margin-top: 40px !important;
+  }
+}
+
+.philosophy-block {
+  margin-top: 40px !important;
+  padding: 40px 24px !important;
+}
+@media (min-width: 640px) {
+  .philosophy-block {
+    padding: 50px 40px !important;
+    margin-top: 50px !important;
+  }
+}
+
+/* Fix 3: Contact section — icons in ONE ROW, smaller */
+.contact-section {
+  padding: 50px 20px !important;
+  background: #FFFFFF !important;
+}
+@media (min-width: 640px) {
+  .contact-section {
+    padding: 60px 32px !important;
+  }
+}
+.contact-section::before {
+  display: none !important;
+}
+.contact-card {
+  padding: 40px 20px !important;
+  background: rgba(240, 251, 255, 0.7) !important;
+  border: 1px solid rgba(32, 132, 218, 0.15) !important;
+}
+@media (min-width: 640px) {
+  .contact-card {
+    padding: 50px 40px !important;
+  }
+}
+
+.social-grid {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  margin-top: 30px !important;
+  max-width: 100% !important;
+  overflow-x: auto;
+}
+.social-link {
+  flex: 0 0 auto !important;
+  padding: 12px 8px !important;
+  min-width: 90px !important;
+  max-width: 110px !important;
+  gap: 6px !important;
+  border-radius: 14px !important;
+}
+.social-link .social-icon {
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 16px !important;
+  border-radius: 10px !important;
+}
+.social-link .social-label {
+  font-size: 11px !important;
+}
+.social-link .social-handle {
+  display: none !important;
+}
+
+/* Fix 4: Compact footer (like navbar height) */
+footer {
+  padding: 14px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}
+footer .footer-brand {
+  font-size: 16px !important;
+  margin-bottom: 0 !important;
+}
+@media (min-width: 640px) {
+  footer .footer-brand {
+    font-size: 18px !important;
+  }
+}
+footer p {
+  margin-top: 0 !important;
+  font-size: 10px !important;
+}
+@media (min-width: 640px) {
+  footer p {
+    font-size: 11px !important;
+  }
+}
+
+/* Fix aurora orbs — dim them since bg is now solid white */
+.aurora-orb {
+  opacity: 0.15 !important;
+}
