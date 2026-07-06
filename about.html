@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Inaya Solution Desk</title>
+<meta name="description" content="The story, values, and philosophy behind Inaya Solution Desk. Meet the desk that puts clarity, patience, and craft into every project.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self';">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #F5F5EE;
+  --sage-pale: #E8EBD5;
+  --sage-soft: #C5C8A3;
+  --sage-fresh: #9EAE97;
+  --olive-warm: #8F967B;
+  --earth-taupe: #776B54;
+  --espresso: #3D3527;
+  --gold-muted: #B8956A;
+  --white: #FFFFFF;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--cream);
+  color: var(--espresso);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+a { text-decoration: none; color: inherit; }
+
+/* ================= NAVBAR (SAME ACROSS ALL PAGES) ================= */
+.page-nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 20px 16px 0;
+  background: linear-gradient(180deg, rgba(245, 245, 238, 0.95) 0%, rgba(245, 245, 238, 0.7) 100%);
+  backdrop-filter: blur(20px);
+}
+@media (min-width: 640px) { .page-nav-wrap { padding: 20px 24px 0; } }
+@media (min-width: 768px) { .page-nav-wrap { padding: 20px 40px 0; } }
+@media (min-width: 1024px) { .page-nav-wrap { padding: 20px 64px 0; } }
+
+.navbar {
+  border-radius: 100px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: rgba(61, 53, 39, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(158, 174, 151, 0.3);
+  box-shadow: 0 10px 40px rgba(119, 107, 84, 0.15);
+}
+@media (min-width: 768px) { .navbar { padding: 14px 28px; } }
+
+.navbar .brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #F5F5EE 0%, #E8EBD5 50%, #C5C8A3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+@media (min-width: 480px) { .navbar .brand { font-size: 18px; } }
+@media (min-width: 768px) { .navbar .brand { font-size: 22px; } }
+
+.nav-links { display: none; gap: 32px; list-style: none; }
+@media (min-width: 900px) { .nav-links { display: flex; } }
+.nav-links a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(245, 245, 238, 0.85);
+  transition: color 0.3s;
+  position: relative;
+  letter-spacing: 0.3px;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--sage-fresh);
+  transition: all 0.3s;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--sage-fresh); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+.nav-toggle {
+  background: rgba(245, 245, 238, 0.1);
+  border: 1px solid rgba(245, 245, 238, 0.2);
+  color: var(--cream);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+.nav-toggle:hover { background: rgba(158, 174, 151, 0.3); border-color: var(--sage-fresh); }
+@media (min-width: 900px) { .nav-toggle { display: none; } }
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 85%;
+  max-width: 320px;
+  height: 100vh;
+  background: linear-gradient(180deg, rgba(61, 53, 39, 0.98) 0%, rgba(119, 107, 84, 0.98) 100%);
+  backdrop-filter: blur(30px);
+  border-left: 1px solid rgba(245, 245, 238, 0.1);
+  z-index: 1000;
+  padding: 100px 32px 40px;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+}
+.mobile-menu.open { right: 0; }
+.mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.mobile-menu ul li a {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(245, 245, 238, 0.9);
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(245, 245, 238, 0.1);
+  transition: all 0.3s;
+}
+.mobile-menu ul li a:hover, .mobile-menu ul li a.active { color: var(--sage-fresh); padding-left: 12px; }
+.mobile-menu-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(245, 245, 238, 0.1);
+  border: 1px solid rgba(245, 245, 238, 0.15);
+  color: var(--cream);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(61, 53, 39, 0.6);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 999;
+}
+.mobile-menu-backdrop.open { opacity: 1; visibility: visible; }
+
+/* ================= PAGE HERO ================= */
+.page-hero {
+  padding: 80px 20px 100px;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--sage-pale) 50%, #DDE0C0 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+@media (min-width: 768px) { .page-hero { padding: 120px 40px 140px; } }
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(158, 174, 151, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(184, 149, 106, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--earth-taupe);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding: 8px 18px;
+  background: rgba(143, 150, 123, 0.15);
+  border: 1px solid rgba(143, 150, 123, 0.3);
+  border-radius: 100px;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 640px) { .section-eyebrow { font-size: 12px; letter-spacing: 3px; padding: 8px 20px; } }
+
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--espresso);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 640px) { .page-hero h1 { font-size: 54px; } }
+@media (min-width: 1024px) { .page-hero h1 { font-size: 72px; } }
+.page-hero h1 em {
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--olive-warm) 0%, var(--earth-taupe) 60%, var(--gold-muted) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-hero .subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--earth-taupe);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.75;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 640px) { .page-hero .subtitle { font-size: 19px; } }
+
+.container-max { max-width: 1200px; margin: 0 auto; }
+
+/* ================= STORY SECTION ================= */
+.story-section {
+  padding: 100px 20px;
+  background: var(--cream);
+}
+@media (min-width: 640px) { .story-section { padding: 120px 32px; } }
+@media (min-width: 1024px) { .story-section { padding: 140px 64px; } }
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  align-items: center;
+}
+@media (min-width: 900px) { .story-grid { grid-template-columns: 1fr 1.2fr; gap: 80px; } }
+
+.story-visual {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, var(--sage-fresh) 0%, var(--olive-warm) 50%, var(--earth-taupe) 100%);
+  border-radius: 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(119, 107, 84, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.story-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(245, 245, 238, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(184, 149, 106, 0.4) 0%, transparent 50%);
+}
+.story-visual-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--cream);
+  padding: 40px;
+}
+.story-visual-content .icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+.story-visual-content .label {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.story-visual-content .sublabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.story-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--espresso);
+  margin-bottom: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+@media (min-width: 640px) { .story-content h2 { font-size: 44px; } }
+.story-content h2 em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--earth-taupe);
+}
+.story-content p {
+  font-size: 16px;
+  color: var(--earth-taupe);
+  margin-bottom: 20px;
+  line-height: 1.85;
+  font-weight: 400;
+}
+@media (min-width: 640px) { .story-content p { font-size: 17px; } }
+.story-content .drop-cap::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 60px;
+  font-weight: 700;
+  float: left;
+  line-height: 0.9;
+  margin: 8px 12px 0 0;
+  color: var(--olive-warm);
+}
+
+/* ================= VALUES SECTION ================= */
+.values-section {
+  padding: 100px 20px;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--sage-pale) 100%);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 640px) { .values-section { padding: 120px 32px; } }
+@media (min-width: 1024px) { .values-section { padding: 140px 64px; } }
+
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-header .title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--espresso);
+  margin-bottom: 16px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+@media (min-width: 640px) { .section-header .title { font-size: 48px; } }
+.section-header .title em {
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--olive-warm) 0%, var(--gold-muted) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.section-header .subtitle {
+  font-size: 16px;
+  color: var(--earth-taupe);
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+@media (min-width: 640px) { .section-header .subtitle { font-size: 18px; } }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 640px) { .values-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+@media (min-width: 1024px) { .values-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.value-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(158, 174, 151, 0.35);
+  border-radius: 20px;
+  padding: 36px 28px;
+  transition: all 0.4s;
+}
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(119, 107, 84, 0.18);
+  border-color: var(--sage-fresh);
+  background: rgba(255, 255, 255, 0.95);
+}
+.value-icon {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, var(--sage-fresh) 0%, var(--olive-warm) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 24px;
+  margin-bottom: 22px;
+  box-shadow: 0 10px 30px rgba(143, 150, 123, 0.35);
+}
+.value-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--espresso);
+  margin-bottom: 12px;
+  font-style: italic;
+}
+.value-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  color: var(--earth-taupe);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ================= DIFFERENT SECTION ================= */
+.different-section {
+  padding: 100px 20px;
+  background: var(--cream);
+}
+@media (min-width: 640px) { .different-section { padding: 120px 32px; } }
+@media (min-width: 1024px) { .different-section { padding: 140px 64px; } }
+
+.different-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+@media (min-width: 900px) { .different-grid { grid-template-columns: 1fr 1.5fr; gap: 80px; } }
+
+.different-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--espresso);
+  margin-bottom: 20px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+@media (min-width: 640px) { .different-header h2 { font-size: 48px; } }
+.different-header h2 em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--earth-taupe);
+}
+.different-header p {
+  font-size: 16px;
+  color: var(--earth-taupe);
+  line-height: 1.75;
+  font-weight: 300;
+}
+@media (min-width: 640px) { .different-header p { font-size: 17px; } }
+
+.different-list { display: flex; flex-direction: column; gap: 24px; }
+.different-item {
+  display: flex;
+  gap: 20px;
+  padding: 28px;
+  background: linear-gradient(135deg, rgba(158, 174, 151, 0.08) 0%, rgba(184, 149, 106, 0.05) 100%);
+  border: 1px solid rgba(158, 174, 151, 0.25);
+  border-radius: 18px;
+  transition: all 0.3s;
+}
+.different-item:hover {
+  transform: translateX(6px);
+  border-color: var(--sage-fresh);
+  background: linear-gradient(135deg, rgba(158, 174, 151, 0.12) 0%, rgba(184, 149, 106, 0.08) 100%);
+}
+.different-item .check {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--olive-warm), var(--earth-taupe));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.different-item .text h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--espresso);
+  margin-bottom: 8px;
+}
+.different-item .text p {
+  font-size: 14.5px;
+  color: var(--earth-taupe);
+  line-height: 1.7;
+}
+
+/* ================= TIMELINE ================= */
+.timeline-section {
+  padding: 100px 20px;
+  background: linear-gradient(180deg, var(--sage-pale) 0%, #DDE0C0 100%);
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 640px) { .timeline-section { padding: 120px 32px; } }
+@media (min-width: 1024px) { .timeline-section { padding: 140px 64px; } }
+
+.timeline {
+  max-width: 900px;
+  margin: 60px auto 0;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--sage-fresh), var(--earth-taupe));
+}
+@media (min-width: 768px) { .timeline::before { left: 50%; transform: translateX(-1px); } }
+
+.timeline-item {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 50px;
+}
+@media (min-width: 768px) {
+  .timeline-item { padding-left: 0; width: 50%; padding-right: 60px; }
+  .timeline-item:nth-child(even) { margin-left: 50%; padding-right: 0; padding-left: 60px; }
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  width: 20px; height: 20px;
+  background: linear-gradient(135deg, var(--sage-fresh), var(--olive-warm));
+  border: 4px solid var(--cream);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(143, 150, 123, 0.4);
+  z-index: 2;
+}
+@media (min-width: 768px) {
+  .timeline-item .timeline-dot { left: auto; right: -10px; }
+  .timeline-item:nth-child(even) .timeline-dot { left: -10px; right: auto; }
+}
+
+.timeline-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--gold-muted);
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.timeline-item h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--espresso);
+  margin-bottom: 10px;
+  font-style: italic;
+}
+.timeline-item p {
+  font-size: 15px;
+  color: var(--earth-taupe);
+  line-height: 1.7;
+}
+@media (min-width: 768px) {
+  .timeline-item:nth-child(odd) { text-align: right; }
+}
+
+/* ================= CTA SECTION ================= */
+.cta-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, var(--olive-warm) 0%, var(--earth-taupe) 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 640px) { .cta-section { padding: 120px 32px; } }
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(245, 245, 238, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.cta-inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+.cta-section .eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--sage-soft);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(245, 245, 238, 0.1);
+  border: 1px solid rgba(245, 245, 238, 0.2);
+  border-radius: 100px;
+}
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+@media (min-width: 640px) { .cta-section h2 { font-size: 52px; } }
+.cta-section h2 em {
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--sage-pale) 0%, var(--sage-soft) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.cta-section p {
+  font-size: 17px;
+  color: rgba(245, 245, 238, 0.85);
+  margin-bottom: 40px;
+  font-weight: 300;
+  line-height: 1.75;
+}
+.cta-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--cream);
+  color: var(--espresso);
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(245, 245, 238, 0.35);
+  background: var(--white);
+}
+.btn-ghost {
+  font-family: 'Space Grotesk', sans-serif;
+  background: transparent;
+  color: var(--cream);
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1.5px solid var(--cream);
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-ghost:hover {
+  background: var(--cream);
+  color: var(--espresso);
+  transform: translateY(-3px);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: linear-gradient(180deg, var(--earth-taupe) 0%, var(--espresso) 100%);
+  padding: 40px 20px 30px;
+  text-align: center;
+}
+footer .footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+@media (min-width: 640px) { footer .footer-brand { font-size: 24px; } }
+footer .footer-brand .accent {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--sage-soft) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+footer p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(245, 245, 238, 0.65);
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+@media (min-width: 640px) { footer p { font-size: 12px; } }
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="page-nav-wrap">
+  <nav class="navbar">
+    <a href="index.html" class="brand">Inaya Solution Desk</a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <i class="bi bi-list"></i>
+    </button>
+  </nav>
+</div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu-backdrop" id="menuBackdrop"></div>
+<aside class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">
+    <i class="bi bi-x-lg"></i>
+  </button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</aside>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="section-eyebrow">About the Desk</span>
+  <h1>The story behind <em>Inaya Solution Desk</em>.</h1>
+  <p class="subtitle">A quiet, focused practice built for the people who care about doing things right the first time and understanding them the second.</p>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="container-max">
+    <div class="story-grid">
+      <div class="story-visual reveal">
+        <div class="story-visual-content">
+          <div class="icon"><i class="bi bi-lamp"></i></div>
+          <div class="label">Where problems find a patient partner.</div>
+          <div class="sublabel">Est. 2026</div>
+        </div>
+      </div>
+      <div class="story-content reveal">
+        <h2>Not another agency. <em>A real desk.</em></h2>
+        <p class="drop-cap">Inaya Solution Desk was born out of a simple frustration. Too many freelancers hand over files and disappear. Too many agencies talk in jargon nobody understands. Too many learners are left staring at broken configurations, unfinished projects, or half-written reports with nobody to guide them through.</p>
+        <p>We built the desk to change that. Whether it is a Cisco topology that will not converge, an online store that needs to launch by next week, or a technical document that needs to speak clearly to real readers, we sit down beside you and figure it out together.</p>
+        <p>The name comes from the idea of a real, physical desk. A place where you can bring your problem, sit across from someone who has done this before, and walk away with an answer plus an understanding of how it works.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="container-max">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">What We Stand For</span>
+      <h2 class="title">Four values that shape <em>every project</em>.</h2>
+      <p class="subtitle">These are not slogans on a wall. They are the standards we hold ourselves to on every message, every draft, and every configuration.</p>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-icon"><i class="bi bi-eyeglasses"></i></div>
+        <h3>Clarity</h3>
+        <p>Good work explains itself. If you cannot understand what we did or why, we have not finished the job yet.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon"><i class="bi bi-clock-history"></i></div>
+        <h3>Patience</h3>
+        <p>Learning takes time. Ask questions, come back with more, and expect the same steady patience every time.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon"><i class="bi bi-hammer"></i></div>
+        <h3>Craft</h3>
+        <p>Every configuration, sentence, and design decision reflects a person behind it. We take pride in that.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon"><i class="bi bi-heart-pulse"></i></div>
+        <h3>Honesty</h3>
+        <p>We tell you what is realistic, what is not, and what will actually help. Even when it costs us the sale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT MAKES US DIFFERENT -->
+<section class="different-section">
+  <div class="container-max">
+    <div class="different-grid">
+      <div class="different-header reveal">
+        <span class="section-eyebrow" style="margin-bottom: 24px;">The Difference</span>
+        <h2>What makes the <em>desk different</em>.</h2>
+        <p>The internet is full of people who will do a task for cheap. That is not what we do. We are for the people who want to actually understand what they are paying for and walk away smarter than they started.</p>
+      </div>
+      <div class="different-list">
+        <div class="different-item reveal">
+          <div class="check"><i class="bi bi-check-lg"></i></div>
+          <div class="text">
+            <h4>Explanations included, always</h4>
+            <p>Every deliverable comes with a short write-up of what was done and why. You never get a black box, you get a working solution and the story behind it.</p>
+          </div>
+        </div>
+        <div class="different-item reveal">
+          <div class="check"><i class="bi bi-check-lg"></i></div>
+          <div class="text">
+            <h4>Real conversations, not chatbots</h4>
+            <p>Every message goes through a real human who reads it, thinks about it, and replies with something useful. No canned responses, no upsell scripts.</p>
+          </div>
+        </div>
+        <div class="different-item reveal">
+          <div class="check"><i class="bi bi-check-lg"></i></div>
+          <div class="text">
+            <h4>Scope confirmed before you pay</h4>
+            <p>Before any order, we make sure we understand what you actually need and can genuinely deliver it. If it is not a good fit, we say so honestly and point you elsewhere.</p>
+          </div>
+        </div>
+        <div class="different-item reveal">
+          <div class="check"><i class="bi bi-check-lg"></i></div>
+          <div class="text">
+            <h4>Follow-up questions welcomed</h4>
+            <p>After delivery, if something is unclear or a related question comes up, we answer it. Understanding is not a paid extra, it is part of the work.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+  <div class="container-max">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">The Journey</span>
+      <h2 class="title">How the desk <em>came together</em>.</h2>
+      <p class="subtitle">A short version of the road we have walked so far.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2021 &mdash; The Beginning</div>
+        <h4>First freelance projects</h4>
+        <p>Started with small Cisco Packet Tracer projects, quickly discovered that clients valued explanations as much as deliverables.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2022 &mdash; Finding the Style</div>
+        <h4>Focus on teaching-through-work</h4>
+        <p>Refined an approach that pairs every delivered project with clear notes explaining the reasoning. Repeat clients started coming back.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2024 &mdash; Broadening the Scope</div>
+        <h4>Added technical writing and e-commerce</h4>
+        <p>Expanded from pure networking into cybersecurity writing and small-business e-commerce projects, because the same principles apply.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2026 &mdash; The Desk Opens</div>
+        <h4>Inaya Solution Desk is born</h4>
+        <p>Formalized the practice under one brand: a focused, honest desk built for people who want real answers, not just delivered files.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <span class="eyebrow">Ready to Start</span>
+    <h2>Have something you would like to <em>solve together</em>?</h2>
+    <p>The desk is open. Whether it is a networking problem, an online store, a document that needs polishing, or just a question about what is possible, we would love to hear from you.</p>
+    <div class="cta-buttons">
+      <a href="services.html" class="btn-primary">Explore Services <i class="bi bi-arrow-right"></i></a>
+      <a href="contact.html" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Inaya <span class="accent">Solution Desk</span></div>
+  <p>Copyright 2026 &nbsp;&middot;&nbsp; Crafted with care</p>
+</footer>
+
+<script>
+// Mobile menu
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuBackdrop = document.getElementById('menuBackdrop');
+const menuClose = document.getElementById('menuClose');
+function openMenu() {
+  mobileMenu.classList.add('open');
+  menuBackdrop.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+  menuBackdrop.classList.remove('open');
+  document.body.style.overflow = '';
+}
+navToggle.addEventListener('click', openMenu);
+menuClose.addEventListener('click', closeMenu);
+menuBackdrop.addEventListener('click', closeMenu);
+document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', closeMenu));
+
+// Reveal on scroll
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
