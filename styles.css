@@ -1,55 +1,49 @@
+
 /* =====================================================
    INAYA SOLUTION DESK — MASTER STYLESHEET v2026
    Cool sky blue design system with aurora accents
    ===================================================== */
 /* -------- DESIGN TOKENS -------- */
+
 :root {
   /* Cool sky blue palette (base) */
   --ivory: #FFFFFF;
   --ivory-warm: #F0FBFF;
   --ivory-deep: #E4F5FE;
   --cream-mist: #F5FBFF;
-
   /* Sky supporting */
   --sage-mint: #E4F5FE;
   --sage-soft: #B4E2F9;
   --sage-fresh: #8DD1F1;
   --olive-warm: #4A6D8C;
-
   /* Cool accents (the star colors) */
   --amber: #20A4EF;
   --amber-deep: #2086DA;
   --peach: #B4E2F9;
   --terracotta: #8DD1F1;
   --terracotta-deep: #2086DA;
-
   /* Cool grounding */
   --earth-taupe: #4A6D8C;
   --espresso: #1E3A5F;
   --midnight: #0F2540;
-
   /* Neutrals */
   --white: #FFFFFF;
   --off-white: #F0FBFF;
-
   /* Semantic */
   --text-primary: #0F2540;
   --text-secondary: #3D5A7C;
   --text-muted: #7A94B0;
   --border-soft: rgba(32, 132, 218, 0.15);
   --border-medium: rgba(32, 132, 218, 0.25);
-
   /* Gradients */
   --gradient-warm: linear-gradient(135deg, #B4E2F9 0%, #20A4EF 50%, #2086DA 100%);
   --gradient-earth: linear-gradient(135deg, #4A6D8C 0%, #1E3A5F 100%);
   --gradient-glow: linear-gradient(135deg, #20A4EF 0%, #2086DA 100%);
-
   /* Elevation */
   --shadow-soft: 0 4px 20px rgba(32, 132, 218, 0.08);
   --shadow-medium: 0 12px 40px rgba(32, 132, 218, 0.15);
   --shadow-strong: 0 24px 60px rgba(15, 37, 64, 0.18);
   --shadow-glow-amber: 0 20px 60px rgba(32, 164, 239, 0.40);
-
   /* Type scale */
   --text-xs: 11px;
   --text-sm: 13px;
