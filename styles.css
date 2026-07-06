@@ -327,9 +327,13 @@ main, section, nav, footer { position: relative; z-index: 2; }
 .hero-heading .word { display: inline-block; white-space: nowrap; margin: 0 6px; }
 @media (min-width: 768px) { .hero-heading .word { margin: 0 8px; } }
 .hero-heading .word.accent {
-  background: linear-gradient(135deg, #F5C79C 0%, #E8A85C 50%, #F4EEDF 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  font-style: italic; font-weight: 500;
+  color: #FFFFFF;
+  font-style: italic;
+  font-weight: 500;
+  text-shadow:
+    0 0 30px rgba(232, 168, 92, 0.8),
+    0 0 60px rgba(232, 168, 92, 0.5),
+    0 4px 20px rgba(0, 0, 0, 0.4);
 }
 .hero-heading .char {
   display: inline-block; opacity: 0;
