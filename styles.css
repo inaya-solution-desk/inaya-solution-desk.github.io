@@ -1286,4 +1286,69 @@ footer p {
 .aurora-orb {
   opacity: 0.15 !important;
 }
+/* =====================================================
+   MARQUEE (auto-scrolling ticker rows)
+   ===================================================== */
+.marquee-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding: 4px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+.marquee-track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+}
+.marquee-track.reverse {
+  animation: marqueeScrollReverse 40s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marqueeScrollReverse {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.marquee-item {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  background: rgba(32, 164, 239, 0.08);
+  border: 1px solid rgba(32, 164, 239, 0.25);
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+.marquee-item:hover {
+  background: rgba(32, 164, 239, 0.22);
+  border-color: var(--amber);
+  color: var(--text-primary);
+}
+/* Respect users who prefer no motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-track.reverse {
+    animation: none;
+  }
+  .marquee {
+    overflow-x: auto;
+  }
+}
 
