@@ -1203,7 +1203,6 @@ body {
     margin-top: 50px !important;
   }
 }
-
 /* Fix 3: Contact section — icons in ONE ROW, smaller */
 .contact-section {
   padding: 50px 20px !important;
@@ -1227,7 +1226,6 @@ body {
     padding: 50px 40px !important;
   }
 }
-
 .social-grid {
   display: flex !important;
   flex-wrap: nowrap !important;
@@ -1257,7 +1255,6 @@ body {
 .social-link .social-handle {
   display: none !important;
 }
-
 /* Fix 4: Compact footer (like navbar height) */
 footer {
   padding: 14px 20px !important;
@@ -1285,8 +1282,8 @@ footer p {
     font-size: 11px !important;
   }
 }
-
 /* Fix aurora orbs — dim them since bg is now solid white */
 .aurora-orb {
   opacity: 0.15 !important;
 }
+
