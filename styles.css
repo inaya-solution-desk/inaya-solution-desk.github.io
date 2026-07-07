@@ -4,7 +4,6 @@
    Cool sky blue design system with aurora accents
    ===================================================== */
 /* -------- DESIGN TOKENS -------- */
-
 :root {
   /* Cool sky blue palette (base) */
   --ivory: #FFFFFF;
@@ -1990,6 +1989,246 @@ footer p {
   .preview-section .section-title { font-size: 48px !important; }
 }
 
+/* =====================================================
+   POLISH PASS — tight spacing, dark text, solid buttons
+   ===================================================== */
+
+/* ---------- FIX 1: Reduce section spacing dramatically ---------- */
+
+.guidance-section {
+  padding: 32px 20px !important;
+}
+@media (min-width: 640px) {
+  .guidance-section { padding: 40px 32px !important; }
+}
+@media (min-width: 1024px) {
+  .guidance-section { padding: 48px 64px !important; }
+}
+
+.preview-section {
+  padding: 40px 20px !important;
+}
+@media (min-width: 640px) {
+  .preview-section { padding: 48px 32px !important; }
+}
+@media (min-width: 1024px) {
+  .preview-section { padding: 56px 64px !important; }
+}
+
+.contact-section {
+  padding: 32px 20px !important;
+}
+@media (min-width: 640px) {
+  .contact-section { padding: 40px 32px !important; }
+}
+
+/* Tighten section-header spacing */
+.section-header {
+  margin-bottom: 24px !important;
+}
+.section-lead {
+  margin-bottom: 16px !important;
+  font-size: 15px !important;
+  color: #2A241A !important;
+}
+@media (min-width: 640px) {
+  .section-lead {
+    font-size: 16px !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+/* Tighten trust-block */
+.trust-block {
+  padding: 24px 20px !important;
+  margin-top: 16px !important;
+}
+@media (min-width: 640px) {
+  .trust-block {
+    padding: 30px 30px !important;
+    margin-top: 20px !important;
+  }
+}
+
+/* Tighten preview cards' vertical space */
+.preview-cta {
+  margin-top: 24px !important;
+}
+
+/* ---------- FIX 2: Darken all text for readability ---------- */
+
+/* Section descriptions and paragraphs */
+.section-lead,
+.preview-card p,
+.project-body p,
+.portfolio-info h4,
+.trust-cat-desc,
+.faq-answer p,
+.included-list li {
+  color: #1F2937 !important;
+}
+
+/* Card headings crisper */
+.preview-card h3,
+.project-body h4,
+.trust-cat-h {
+  color: #0F1E2E !important;
+}
+
+/* Trust card tagline slightly darker */
+.trust-cat-tagline {
+  color: #2086DA !important;
+  font-weight: 600 !important;
+}
+
+/* Learn more links */
+.preview-link {
+  color: #1F5FAA !important;
+  font-weight: 700 !important;
+}
+.preview-link:hover {
+  color: #0F2540 !important;
+}
+
+/* Project tag chips darker */
+.project-tag {
+  color: #1F5FAA !important;
+  font-weight: 700 !important;
+}
+
+/* Portfolio tags darker */
+.portfolio-tags span {
+  color: #1F2937 !important;
+  font-weight: 600 !important;
+}
+
+/* Stats labels visible */
+.stat-mini-label {
+  color: #4A5568 !important;
+  font-weight: 600 !important;
+}
+
+/* Vscroll items darker */
+.vscroll-item {
+  color: #1F2937 !important;
+  font-weight: 500 !important;
+}
+
+/* Section eyebrows a bit darker */
+.section-eyebrow {
+  color: #1F5FAA !important;
+  font-weight: 700 !important;
+}
+
+/* ---------- FIX 3: SOLID buttons (no gradient bg) ---------- */
+
+.btn-amber,
+.btn-primary {
+  background: #2086DA !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(32, 134, 218, 0.35) !important;
+  padding: 12px 26px !important;
+  font-size: 13px !important;
+}
+.btn-amber:hover,
+.btn-primary:hover {
+  background: #1F5FAA !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(32, 134, 218, 0.5) !important;
+  color: #FFFFFF !important;
+}
+
+/* Remove the outer glow blob behind buttons */
+.preview-cta {
+  position: relative;
+}
+.preview-cta::before,
+.preview-cta::after {
+  display: none !important;
+}
+
+/* Force button to sit on solid, no aurora bleed */
+.btn {
+  position: relative;
+  z-index: 3;
+}
+
+/* ---------- FIX 4: Remove aurora orbs completely (they cause the "brightness bleed") ---------- */
+
+.aurora-orb {
+  opacity: 0 !important;
+  display: none !important;
+}
+
+/* Also kill any radial glow inside sections that bleeds */
+.guidance-section::before,
+.guidance-section::after,
+.contact-section::before,
+.trust-block::before,
+.preview-section::before,
+.preview-section::after {
+  display: none !important;
+}
+
+/* ---------- FIX 5: Cleaner section separation with subtle divider ---------- */
+
+.guidance-section,
+.preview-section,
+.contact-section {
+  background: #FFFFFF !important;
+}
+
+.preview-section.alt-bg {
+  background: #F7FAFC !important;
+}
+
+/* Add a thin top border on each section to visually separate without whitespace */
+.preview-section,
+.contact-section {
+  border-top: 1px solid #E4EBF2 !important;
+}
+
+/* ---------- FIX 6: Trust-block cleaner background ---------- */
+
+.trust-block {
+  background: #F7FAFC !important;
+  border: 1px solid #E4EBF2 !important;
+  box-shadow: none !important;
+}
+
+/* Trust category cards on the cleaner background */
+.trust-category {
+  background: #FFFFFF !important;
+  border: 1px solid #E4EBF2 !important;
+  box-shadow: 0 2px 8px rgba(15, 37, 64, 0.04) !important;
+}
+
+/* Trust badges: solid, no gradient */
+.trust-cat-badge {
+  background: #2086DA !important;
+  box-shadow: none !important;
+  color: #FFFFFF !important;
+}
+
+/* Stat mini numbers keep the sky blue color, no gradient */
+.stat-mini-num {
+  background: none !important;
+  -webkit-text-fill-color: #2086DA !important;
+  color: #2086DA !important;
+}
+/* Preview icons solid */
+.preview-icon {
+  background: #2086DA !important;
+  box-shadow: 0 4px 12px rgba(32, 134, 218, 0.3) !important;
+}
+/* Project thumbnails keep gradient (they're visual, not buttons) */
+/* ---------- FIX 7: Compact hero content spacing ---------- */
+.hero-content {
+  padding: 40px 0 60px !important;
+}
+.hero-subline {
+  margin: -6px 0 28px !important;
+}
 
 
 
