@@ -1546,5 +1546,134 @@ footer p {
   }
 }
 
+/* =====================================================
+   TRUST BLOCK — SPACING & LAYOUT FIXES
+   ===================================================== */
+
+/* Force cards side-by-side on desktop */
+.trust-categories {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 20px !important;
+  margin-top: 30px !important;
+}
+@media (min-width: 900px) {
+  .trust-categories {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* Category card container - make each card fully self-contained visually */
+.trust-category {
+  padding: 24px 22px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(32, 164, 239, 0.20) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 30px rgba(32, 132, 218, 0.08) !important;
+}
+
+/* Inside the card, stack content on top and scroller below */
+.trust-cat-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+}
+
+/* Content section - tight spacing, no flex-grow gap */
+.trust-cat-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+}
+
+.trust-cat-badge {
+  margin-bottom: 12px !important;
+  padding: 5px 12px !important;
+  font-size: 10px !important;
+}
+
+.trust-cat-h {
+  font-size: 24px !important;
+  margin-bottom: 4px !important;
+  line-height: 1.1 !important;
+}
+
+.trust-cat-tagline {
+  font-size: 10px !important;
+  margin-bottom: 12px !important;
+}
+
+/* KEY FIX: Remove flex-grow that was creating empty space */
+.trust-cat-desc {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 14px !important;
+  flex-grow: 0 !important;
+}
+
+/* Stats now sit right below description */
+.trust-cat-stats {
+  padding-top: 12px !important;
+  border-top: 1px solid rgba(32, 164, 239, 0.15) !important;
+  gap: 24px !important;
+  margin-bottom: 4px !important;
+}
+.stat-mini-num { font-size: 22px !important; }
+.stat-mini-label { font-size: 9px !important; }
+/* SCROLLER SECTION - visually separated, own container */
+.trust-cat-scroller {
+  min-height: 0 !important;
+  border-top: 1px solid rgba(32, 164, 239, 0.15) !important;
+  padding-top: 16px !important;
+  margin-top: 4px !important;
+}
+.vscroll-mask {
+  width: 100% !important;
+  height: 180px !important;
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 15%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 15%, #000 85%, transparent 100%);
+}
+.vscroll-track {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  animation: vscroll 30s linear infinite;
+}
+.vscroll-mask:hover .vscroll-track {
+  animation-play-state: paused;
+}
+@keyframes vscroll {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+.vscroll-item {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px !important;
+  padding: 8px 12px !important;
+  background: rgba(32, 164, 239, 0.06) !important;
+  border: 1px solid rgba(32, 164, 239, 0.18) !important;
+  border-left: 3px solid var(--amber) !important;
+  border-radius: 6px !important;
+  flex-shrink: 0;
+}
+/* Force trust-block itself to not add too much internal padding */
+.trust-block {
+  padding: 32px 24px !important;
+  margin-top: 20px !important;
+}
+@media (min-width: 640px) {
+  .trust-block {
+    padding: 40px 32px !important;
+    margin-top: 30px !important;
+  }
+}
+
+
+
+
 
 
