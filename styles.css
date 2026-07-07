@@ -2330,5 +2330,166 @@ body {
 }
 /* Footer stays dark, no change needed */
 
+/* =====================================================
+   BALANCE HEADING — magic H3 typography
+   ===================================================== */
+
+.balance-heading {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  max-width: 900px;
+  margin: 8px auto 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  line-height: 1.2;
+}
+.bh-line {
+  display: block;
+  font-weight: 500;
+  color: #0F1E2E;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+@media (min-width: 640px) { .bh-line { font-size: 28px; } }
+@media (min-width: 1024px) { .bh-line { font-size: 34px; } }
+
+.bh-line em {
+  font-style: italic;
+  font-weight: 600;
+  background: linear-gradient(135deg, #20A4EF 0%, #2086DA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bh-sub {
+  font-size: 17px !important;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400 !important;
+  color: #4A5568;
+  font-style: normal;
+  margin-top: 4px;
+}
+@media (min-width: 640px) { .bh-sub { font-size: 19px !important; } }
+.bh-sub strong {
+  color: #0F1E2E;
+  font-weight: 700;
+  border-bottom: 2px solid #2086DA;
+  padding-bottom: 2px;
+}
+
+.bh-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px !important;
+  color: #1F5FAA;
+  font-weight: 500 !important;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 14px;
+}
+@media (min-width: 640px) { .bh-tag { font-size: 13px !important; letter-spacing: 2px; } }
+.bh-verb {
+  color: #0F1E2E;
+  font-weight: 700;
+}
+
+/* =====================================================
+   CARD BACKGROUND CLEANUP — remove harsh white on card sections
+   ===================================================== */
+
+/* Academic + E-Commerce trust cards - soft cream instead of pure white */
+.trust-category {
+  background: #FAFBFC !important;
+  border: 1px solid #DDE3EA !important;
+  box-shadow: 0 2px 8px rgba(15, 37, 64, 0.04) !important;
+}
+
+/* Preview (Our Services) cards - soft cream */
+.preview-card {
+  background: #FAFBFC !important;
+  border: 1px solid #DDE3EA !important;
+  box-shadow: 0 2px 10px rgba(15, 37, 64, 0.04) !important;
+}
+.preview-card:hover {
+  background: #FFFFFF !important;
+  border-color: #2086DA !important;
+  box-shadow: 0 12px 28px rgba(32, 134, 218, 0.10) !important;
+}
+
+/* Contact card - soft cream */
+.contact-card {
+  background: #FAFBFC !important;
+  border: 1px solid #DDE3EA !important;
+  box-shadow: 0 4px 18px rgba(15, 37, 64, 0.05) !important;
+}
+
+/* Portfolio items */
+.portfolio-item {
+  background: #FAFBFC !important;
+  border: 1px solid #DDE3EA !important;
+}
+.portfolio-item:hover {
+  background: #FFFFFF !important;
+  border-color: #2086DA !important;
+}
+
+/* Social link cards - cream */
+.social-link {
+  background: #FAFBFC !important;
+  border: 1px solid #DDE3EA !important;
+}
+.social-link:hover {
+  background: #FFFFFF !important;
+  border-color: #2086DA !important;
+}
+
+/* =====================================================
+   SCROLLING UNIVERSITY / SERVICE ITEMS — darker text
+   ===================================================== */
+
+.vscroll-item {
+  color: #0F1E2E !important;
+  font-weight: 600 !important;
+  background: #FFFFFF !important;
+  border: 1px solid #E4EBF2 !important;
+  border-left: 3px solid #2086DA !important;
+}
+.vscroll-item:hover {
+  background: #EEF2F7 !important;
+  color: #0F1E2E !important;
+}
+/* =====================================================
+   RECENT WORK PROJECT THUMBNAILS — lighter, softer palette
+   ===================================================== */
+.project-thumb.v1 {
+  background: linear-gradient(135deg, #DCE9F5 0%, #B4CFE6 100%) !important;
+}
+.project-thumb.v2 {
+  background: linear-gradient(135deg, #E4F0F9 0%, #C7DCEC 100%) !important;
+}
+.project-thumb.v3 {
+  background: linear-gradient(135deg, #D3DFEC 0%, #A9BFD1 100%) !important;
+}
+.project-thumb.v4 {
+  background: linear-gradient(135deg, #E8F1F8 0%, #B8D0E5 100%) !important;
+}
+/* Icons inside thumbnails - darker so they read on light bg */
+.project-thumb i {
+  color: #2086DA !important;
+  text-shadow: 0 2px 8px rgba(15, 37, 64, 0.12) !important;
+  filter: none !important;
+}
+/* Project card itself softer */
+.project-card {
+  background: #FAFBFC !important;
+  border: 1px solid #DDE3EA !important;
+}
+.project-card:hover {
+  border-color: #2086DA !important;
+  background: #FFFFFF !important;
+}
+`
+
 
 
