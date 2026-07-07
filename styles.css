@@ -1346,3 +1346,205 @@ footer p {
   }
 }
 
+/* =====================================================
+   VERTICAL SCROLL LAYOUT + STYLED CATEGORY CARDS + MOBILE CONTACT FIX
+   ===================================================== */
+
+/* Remove old horizontal marquee styling */
+.marquee-wrap, .marquee { display: none !important; }
+
+/* Category card inner layout - 2 columns */
+.trust-cat-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+@media (min-width: 640px) {
+  .trust-cat-inner { grid-template-columns: 1.15fr 1fr; gap: 24px; }
+}
+
+/* Left side - content styling */
+.trust-cat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-cat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--gradient-warm);
+  color: var(--white);
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  align-self: flex-start;
+  box-shadow: 0 6px 20px rgba(32, 164, 239, 0.35);
+}
+
+.trust-cat-h {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+@media (min-width: 640px) { .trust-cat-h { font-size: 28px; } }
+
+.trust-cat-tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--amber-deep);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.trust-cat-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-weight: 400;
+  flex-grow: 1;
+}
+@media (min-width: 640px) { .trust-cat-desc { font-size: 15px; } }
+
+.trust-cat-stats {
+  display: flex;
+  gap: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-soft);
+}
+.stat-mini {
+  display: flex;
+  flex-direction: column;
+}
+.stat-mini-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  background: var(--gradient-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.stat-mini-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+/* Right side - vertical scroller */
+.trust-cat-scroller {
+  min-height: 260px;
+  display: flex;
+}
+.vscroll-mask {
+  width: 100%;
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+@media (min-width: 640px) { .vscroll-mask { height: 300px; } }
+
+.vscroll-track {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: vscroll 40s linear infinite;
+}
+.vscroll-mask:hover .vscroll-track {
+  animation-play-state: paused;
+}
+@keyframes vscroll {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+.vscroll-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 10px 14px;
+  background: rgba(32, 164, 239, 0.06);
+  border: 1px solid rgba(32, 164, 239, 0.20);
+  border-left: 3px solid var(--amber);
+  border-radius: 8px;
+  text-align: left;
+  transition: all 0.25s;
+  flex-shrink: 0;
+}
+.vscroll-item:hover {
+  background: rgba(32, 164, 239, 0.15);
+  border-left-color: var(--amber-deep);
+  transform: translateX(4px);
+  color: var(--text-primary);
+}
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .vscroll-track { animation: none; }
+  .vscroll-mask { overflow-y: auto; -webkit-mask-image: none; mask-image: none; }
+}
+/* Hide old .trust-cat-header if it still exists */
+.trust-cat-header { display: none !important; }
+/* =====================================================
+   MOBILE CONTACT SECTION FIX (CRITICAL)
+   ===================================================== */
+@media (max-width: 640px) {
+  .social-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    overflow: visible !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .social-link {
+    flex: initial !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    padding: 14px 6px !important;
+    gap: 6px !important;
+  }
+  .social-link .social-icon {
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 15px !important;
+  }
+  .social-link .social-label {
+    font-size: 10px !important;
+    text-align: center !important;
+  }
+  .contact-card {
+    padding: 30px 16px !important;
+  }
+}
+@media (max-width: 380px) {
+  .social-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+
+
